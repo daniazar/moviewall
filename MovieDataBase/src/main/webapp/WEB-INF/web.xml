@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+
+		
+  	<servlet>
+		<servlet-name>Main</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.Main</servlet-class>
+	</servlet>
+	
+
+	<servlet-mapping>
+		<servlet-name>Main</servlet-name>
+		<url-pattern>/main</url-pattern>
+	</servlet-mapping>
+	
+		<filter>
+		<filter-name>errorFilter</filter-name>
+		<filter-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.ErrorFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>errorFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>GenresFilter</filter-name>
+		<filter-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.GenresFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>GenresFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>AuthenticationAdminFilter</filter-name>
+		<filter-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.AuthenticationAdminFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>AuthenticationAdminFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
+
+
+
+
+
+	<servlet>
+		<servlet-name>ViewMovie</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.ViewMovie</servlet-class>
+	</servlet>	
+		
+
+	<servlet-mapping>
+		<servlet-name>ViewMovie</servlet-name>
+		<url-pattern>/viewMovie</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	<servlet>
+		<servlet-name>ViewAllMovies</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.AllMovies</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewAllMovies</servlet-name>
+		<url-pattern>/viewAllMovies</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+
+	<servlet>
+		<servlet-name>ListUsers</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.Users</servlet-class>
+	</servlet>	
+		
+	<servlet-mapping>
+		<servlet-name>ListUsers</servlet-name>
+		<url-pattern>/listUsers</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ListGenre</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.ListGenre</servlet-class>
+	</servlet>	
+	
+	<servlet-mapping>
+		<servlet-name>ListGenre</servlet-name>
+		<url-pattern>/listgenre</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>Register</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.Register</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>Register</servlet-name>
+		<url-pattern>/register</url-pattern>
+	</servlet-mapping>
+	
+	
+
+	
+	
+		
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.Logout</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+		
+
+
+	<servlet>
+		<servlet-name>About</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.About</servlet-class>
+	</servlet>		
+	
+	
+
+	<servlet-mapping>
+		<servlet-name>About</servlet-name>
+		<url-pattern>/about</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+  		<servlet-name>MovieSearch</servlet-name>
+  		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.MovieSearch</servlet-class>
+  	</servlet>		
+	
+	<servlet-mapping>
+  		<servlet-name>MovieSearch</servlet-name>
+  		<url-pattern>/MovieSearch</url-pattern>
+  	</servlet-mapping>		
+	
+	
+	<servlet>
+		<servlet-name>Profile</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.UserProfile</servlet-class>
+	</servlet>	
+		
+	<servlet-mapping>
+		<servlet-name>Profile</servlet-name>
+		<url-pattern>/profile</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>SaveComment</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.SaveComment</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SaveComment</servlet-name>
+		<url-pattern>/savecomment</url-pattern>
+	</servlet-mapping>
+		
+		
+	
+	<servlet>
+		<servlet-name>DeleteComment</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.DeleteComment</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>DeleteComment</servlet-name>
+		<url-pattern>/deletecomment</url-pattern>
+	</servlet-mapping>
+	
+
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.Login</servlet-class>
+	</servlet>	
+	
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>	
+
+
+
+	<servlet>
+		<servlet-name>Ranking</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.Ranking</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Ranking</servlet-name>
+		<url-pattern>/ranking</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>AdminHome</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.AdminHome</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>AdminHome</servlet-name>
+		<url-pattern>/admin/home</url-pattern>
+	</servlet-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<servlet>
+		<servlet-name>UserUpgrade</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.UserUpgrade</servlet-class>
+	</servlet>	
+	
+	<servlet-mapping>
+		<servlet-name>UserUpgrade</servlet-name>
+		<url-pattern>/admin/userupgrade</url-pattern>
+	</servlet-mapping>
+
+
+
+		
+	<servlet>
+		<servlet-name>AdminUsers</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.AdminUsers</servlet-class>
+	</servlet>
+
+	
+	<servlet-mapping>
+		<servlet-name>AdminUsers</servlet-name>
+		<url-pattern>/admin/users</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>AdminMovies</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.AdminMovies</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AdminMovies</servlet-name>
+		<url-pattern>/admin/movies</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>AdminMovie</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.AdminMovie</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AdminMovie</servlet-name>
+		<url-pattern>/admin/movie</url-pattern>
+	</servlet-mapping>
+	
+
+	
+	<servlet>
+		<servlet-name>AdminNewMovie</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.AdminNewMovie</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AdminNewMovie</servlet-name>
+		<url-pattern>/admin/newmovie</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>DeleteMovie</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.DeleteMovie</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>DeleteMovie</servlet-name>
+		<url-pattern>/admin/deletemovie</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+		<servlet>
+		<servlet-name>SaveUser</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.SaveUser</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SaveUser</servlet-name>
+		<url-pattern>/register/saveuser</url-pattern>
+	</servlet-mapping>
+	
+
+	
+	
+	<servlet>
+		<servlet-name>SaveMovie</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.SaveMovie</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SaveMovie</servlet-name>
+		<url-pattern>/admin/savemovie</url-pattern>
+	</servlet-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+
+</web-app>

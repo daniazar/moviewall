@@ -1,0 +1,99 @@
+<html>
+	<head>
+		<link href="../css/adminStyle.css" rel="stylesheet" type="text/css" />
+		<link href="../css/jquery.multiSelect.css" rel="stylesheet" type="text/css" />
+		<script type = "text/javascript" src = "../js/jquery.js"></script>
+		<script src="../js/jquery.bgiframe.min.js" type="text/javascript"></script>
+		<script src="../js/jquery.multiSelect.js" type="text/javascript"></script>
+		
+		<script type = "text/javascript">
+			$(document).ready(function(){
+				$('#genreSelector').multiSelect({ oneOrMoreSelected: '*' });
+
+				$('.delete').each(function(){
+					$(this).click(function(){ return confirm('Are you sure? This cannot be undone');});
+				});
+			});
+		</script>
+	</head>
+	<body>
+	
+		<div id = "wrapper">
+			<div id = "header" class = "blue">
+				Admin Section
+			</div>
+			<div id = "leftmenu" class = "blue">
+				<ul>
+					<li><a href = "#">Home</a></li>
+					<li><a href = "#">Movies</a></li>
+					<li><span class = "selected">Users</span></li>
+					<li><a href = "#">Logout</a></li>
+				</ul>
+			</div>
+			<div id = "content">
+				User detail
+				
+				<div class = "box">
+				<form action = "movie.html">
+						<dl>
+							<dd><span class = "left">id</span><i>123456</i></dd>
+							<dd><span class = "left">Title</span><input class = "fixedSize" type = "text" name = "title"/></dd>
+							<dd><span class = "left">Director</span><input class = "fixedSize" type = "text" name = "director"/></dd>
+							<dd><span class = "left">Duration (minutes)</span><input class = "fixedSize" type = "text" name = "duration"/></dd>
+							<dd><span class = "left">Release</span><input class = "fixedSize" type = "text" name = "release"/></dd>
+							<dd><span class = "left">Genres</span>
+							<select id = "genreSelector" class = "fixedSize" size = "4" multiple = "multiple" name = "genres">
+								<option selected = "selected" value = "action">Action</option>
+								<option selected = "selected"value = "adventures">Adventures</option>
+								<option value = "drama">Drama</option>
+								<option value =  "fantasy">Fantasy</option>
+							</select>
+							</dd>
+							<dd><span class = "left">Synopsis</span>
+								<textarea name = "sinopsys" cols = "40" rows = "20">Synopsis</textarea>
+							</dd>
+							<dd>&nbsp;</dd>
+							<dd><span class = "left">Comments</span>134</dd>
+							<dd><span class = "right"><input type = "submit" value = "Save"/></span></dd>
+							
+						</dl>
+					</form>
+					<br/>
+				</div>
+				<div class = "box searchResult">
+					Comments:
+					<table class = "searchResult">
+						<tr class = "first">
+							<td class = "col">User</td>
+							<td class = "col">Ranking</td>
+							<td class = "col">Date</td>
+							<td class = "col">Content</td>
+							<td class = "col">Action</td>
+						</tr>
+						<tr>
+							<td>jackthestriper</td>
+							<td>4</td>
+							<td>9/04/2010 3:54 Am</td>
+							<td>Awful...</td>
+							<td class = "center"><a href = "#">X</a></td>
+						</tr>
+						<tr>
+							<td>thething</td>
+							<td>10</td>
+							<td>9/04/2010 3:54 Am</td>
+							<td>Wonderful!</td>
+							<td class = "center"><a href = "#" class = "delete">X</a></td>
+						</tr>
+						
+					</table>
+				</div>
+				<div class = "box">
+				<form>
+					Delete movie <input type = "submit" value = "Delete" onclick = "return confirm('Are you sure? This cannot be undone');">
+				</form>
+				</div>
+			
+			</div>
+		</div>
+	</body>
+</html>

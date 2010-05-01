@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<link href="../css/adminStyle.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+	
+		<div id = "wrapper">
+			<div id = "header" class = "blue">
+				Admin Section
+			</div>
+			<div id = "leftmenu" class = "blue">
+				<ul>
+					<li><a href = "#">Home</a></li>
+					<li><a href = "#">Movies</a></li>
+					<li><span class = "selected">Users</span></li>
+					<li><a href = "#">Logout</a></li>
+				</ul>
+			</div>
+			<div id = "content">
+				User detail
+				
+				<div class = "box">
+				<form>
+						<dl>
+							<dd><span class = "left">id</span><i>123456</i></dd>
+							<dd><span class = "left">Username</span><input type = "text" name = "username"/></dd>
+							<dd><span class = "left">e-mail</span><input type = "text" name = "email"/></dd>
+							<dd><span class = "left">Name</span><input type = "text" name = "name"/></dd>
+							<dd><span class = "left">Surname</span><input type = "text" name = "surname"/></dd>
+							<dd><span class = "left">Birthday</span><input type = "text" name = "birthday" value = "dd/MM/YYYY"/></dd>
+							<dd><span class = "left">&nbsp;</span><input type = "checkbox" value = "TaC"/> VIP</dd>
+							<dd>&nbsp;</dd>
+							<dd><span class = "right"><input type = "button" value = "Save"/></span></dd>
+						</dl>
+					</form>
+					<br/>
+				</div>
+				<div class = "box">
+				<form>
+					Reset user's password	<input type = "submit" value = "Reset"/>
+				</form>
+				<form>
+					Delete user <input type = "submit" value = "Delete" onclick = "return confirm('Are you sure? This cannot be undone');">
+				</form>
+				</div>
+			
+			</div>
+		</div>
+	</body>
+</html>

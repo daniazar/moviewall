@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Ttile here</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<script type = "text/javascript" src = "js/jquery.js"></script>
+	<script type = "text/javascript" src = "js/jquery.corners.js"></script>
+	<script type = "text/javascript">
+		$(document).ready(function(){
+			$('.corner').corner();
+		});
+	</script>
+</head>
+<body>
+<!-- start header -->
+<div id="header">
+	<div id="logo">
+		<h1><a href="#">Movie wall </a></h1>
+		<p>&nbsp;&nbsp;&nbsp; <a href="">did you enjoyed it?</a></p>
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="current_page_item"><a href="#">homepage</a></li>
+			<li><a href="#">about us</a></li>
+			<li><a href="#">contact us</a></li>
+		</ul>
+	</div>
+</div>
+<!-- end header -->
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+	<div id="content">
+		<!-- start latest-post -->
+		<div id="latest-post" class="post">
+			<h1 class="title">Recent releases</h1>
+			<div class="entry">
+			Here are the resent releases in the system
+				<div class = "left corner blue">
+					<img src = "images/avatar-movie.jpg" class = "left" width = "210" height = "150"/>
+					<div>
+						<ul>
+							<li>Name: <strong>Avatar</strong></li>
+							<li>Director: <strong>James Cameron</strong></li>
+							<li>Genres: <a href = "#">Action</a>|<a href = "#">Adventure</a></li>
+							<li>Ranking: ****/*</li>
+							<li>Duration: <strong>2:10</strong></li>
+							<li>Release: 01/01/2010</li>
+						</ul>
+						<p>In the future, Jake, a paraplegic war veteran, is brought to another planet, Pandora, which is inhabited by 
+							the Na'vi, a humanoid race with their own language and culture. Those from Earth find themselves at odds with 
+							each other and the local culture. <a href = "#" >Read more</a></p>
+							
+					</div>
+					Comments: <a href = "#">34</a>
+				</div>
+				<div class = "left corner blue">
+					<img src = "images/gladiator.jpg" class = "left"/>
+					<div>
+						<ul>
+							<li>Name: <strong>Gladiator</strong></li>
+							<li>Director: <strong>Redly Scot</strong></li>
+							<li>Genres: <a href = "#">Action</a>|<a href = "#">Adventure</a>|<a href = "#">Drama</a> |<a href = "#">History</a></li>
+							<li>Ranking: ****/*</li>
+							<li>Duration: <strong>2:10</strong></li>
+							<li>Release: 18/05/2000</li>
+						</ul>
+						<p>Maximus is a powerful Roman general, loved by the people and the aging Emperor, Marcus Aurelius. 
+							Before his death, the Emperor chooses Maximus to be his heir over his own son, Commodus, and a power
+							 struggle leaves Maximus and his family condemned to death. The powerful general is unable to save his f
+							 amily, and his loss of will allows him to get captured and put into the Gladiator games until he dies. 
+							 The only desire that fuels him now is the chance to rise to the top so that he will be able to look 
+							 into the eyes of the man who will feel his revenge. <a href = "#">Read more</a></p>
+							
+					</div>
+					Comments: <a href = "#">125</a>
+				</div>
+				<div class = "left corner blue">
+					<img src = "images/eragon.jpg" class = "left"/>
+					<div>
+						<ul>
+							<li>Name: <strong>Eragorn</strong></li>
+							<li>Director: <strong>Stefen Fangmeier</strong></li>
+							<li>Genres: <a href = "#">Action</a>|<a href = "#">Adventure</a>|<a href = "#">Fantasy</a>|<a href = "#">Family</a></li>
+							<li>Ranking: ****/*</li>
+							<li>Duration: <strong>1:45</strong></li>
+							<li>Release: 04/06/2006</li>
+						</ul>
+						<p>The Kingdom of Alagaesia is ruled by the evil King Galbatorix, 
+						a former dragon rider that betrayed his mates and his people in his quest for power. 
+						When the orphan farm boy Eragon finds a blue stone sent by Princess Arya, he sooner realizes
+						 that it is a dragon egg. When the dragon Saphira is born, Eragon meets his mentor Brom, and becomes 
+						 the dragon rider foreseen in an ancient prophecy that would set his people free from the tyrant Galbatorix.
+						  Eragon meets the rebels Varden and together they fight against the evil sorcerer
+						   Durza and the army of Galbatorix in a journey for freedom. <a href = "#" >Read more</a></p>
+							
+					</div>
+					Comments: <a href= "#">74</a>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<!-- end latest-post -->
+		<!-- start recent-posts -->
+		<div id="recent-posts">
+			<div><h1>Login</h1></div>
+			<div class="post">
+				<div class="entry">
+					<p>Enter username and password to enter the system.</p>
+					<form>
+						<dl>
+							<dt><span class = "left">Username: </span><span class = "right"><input type = "text" name = "username" value = "username"/></span></dt>
+							<dt><span class = "left">Password: </span><span class = "right"><input type = "password" name = "password" value = "password"/></span></dt>
+							<dt><input type = "submit" value = "Sign in"/></dt>
+						</dl>
+					</form>
+				</div>
+			</div>
+			<div class="post">
+				<div><h1>Find movies by</h1></div>
+				<div class="entry">
+					Enter movie keywords
+					<form>
+						<input type = "text" name = "q" value = "search query"/>
+						<input type = "submit" value = "Search!"/>		
+					</form>
+					<br/>
+					Select any criteria to find movies
+					<ul>
+						<li><a href = "#">Ranking</a></li>
+						<li><a href = "#">Comments</a></li>
+						<li><a href = "#">Genre</a></li>
+						<li><a href = "#">random</a></li>
+					</ul>
+				<h2>Genres</h2>
+					<ul>
+						<li><a href = "#">Action</a></li>
+						<li><a href = "#">Terror</a></li>
+						<li><a href = "#">Drama</a></li>
+						<li><a href = "#">comedy</a></li>
+						<li><a href = "#">more...</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="post">
+				<div><h1>Administration</h1></div>
+				<div class="entry">
+					<ul>
+						<li><a href = "#">Admin login</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- end recent-posts -->
+	</div>
+	<!-- end content -->
+	<!-- start sidebar -->
+
+	<div id="sidebar">
+		<ul>
+			<li>
+				<h2>Lorem Ipsum</h2>
+				<ul>
+					<li><a href="#">Fusce dui neque fringilla</a></li>
+					<li><a href="#">Eget tempor eget nonummy</a></li>
+					<li><a href="#">Magna lacus bibendum mauris</a></li>
+					<li><a href="#">Nec metus sed donec</a></li>
+					<li><a href="#">Magna lacus bibendum mauris</a></li>
+					<li><a href="#">Velit semper nisi molestie</a></li>
+					<li><a href="#">Eget tempor eget nonummy</a></li>
+				</ul>
+			</li>
+			<li>
+				<h2>Lorem Ipsum</h2>
+				<ul>
+					<li><a href="#">Fusce dui neque fringilla</a></li>
+					<li><a href="#">Eget tempor eget nonummy</a></li>
+					<li><a href="#">Magna lacus bibendum mauris</a></li>
+					<li><a href="#">Nec metus sed donec</a></li>
+					<li><a href="#">Magna lacus bibendum mauris</a></li>
+					<li><a href="#">Velit semper nisi molestie</a></li>
+					<li><a href="#">Eget tempor eget nonummy</a></li>
+				</ul>
+			</li>
+			<li>
+				<h2>Volutpat Dolore</h2>
+				<ul>
+					<li><a href="#">Eget tempor eget nonummy</a></li>
+					<li><a href="#">Magna lacus bibendum mauris</a></li>
+					<li><a href="#">Magna lacus bibendum mauris</a></li>
+					<li><a href="#">Velit semper nisi molestie</a></li>
+					<li><a href="#">Nec metus sed donec</a></li>
+					<li><a href="#">Magna lacus bibendum mauris</a></li>
+					<li><a href="#">Fusce dui neque fringilla</a></li>
+				</ul>
+			</li>
+			<li>
+				<h2>Magna Bibendum</h2>
+				<ul>
+					<li><a href="#">Nec metus sed donec</a></li>
+					<li><a href="#">Magna lacus bibendum mauris</a></li>
+					<li><a href="#">Velit semper nisi molestie</a></li>
+					<li><a href="#">Eget tempor eget nonummy</a></li>
+					<li><a href="#">Nec metus sed donec</a></li>
+					<li><a href="#">Magna lacus bibendum mauris</a></li>
+					<li><a href="#">Velit semper nisi molestie</a></li>
+				</ul>
+			</li>
+		</ul>
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+
+	<!-- end sidebar -->
+</div>
+<!-- end page -->
+<div id="footer-bg">
+<div id="footer">
+	<p id="legal">&copy;2007 Enterprise . All Rights Reserved.</p>
+	<p id="links"><a href="#">Privacy</a>&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; <a href="#">Terms</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="http://jigsaw.w3.org/css-validator/check/referer" title="This page validates as CSS"><abbr title="Cascading Style Sheets">CSS</abbr></a></p>
+</div>
+</div>
+</body>
+</html>
