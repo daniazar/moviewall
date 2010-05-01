@@ -9,6 +9,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background: #FFFFFF url(../images/img01.jpg) repeat-x left top;
+	background: url(http://www.freecsstemplates.org/previews/familiar/images/img01.gif);
 	text-align: justify;
 	font-family: "Trebuchet MS", Tahoma, Arial, Helvetica, sans-serif;
 	font-size: 12px;
@@ -211,6 +212,7 @@ img.right {
 	margin: 0 auto;
 	padding-top: 50px;
 	background: #FFFFFF url(../images/img02.jpg) no-repeat left top;
+	background: url(http://www.freecsstemplates.org/previews/familiar/images/img01.gif);
 }
 
 #latest-post {
