@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.MovieDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl.DatabaseMovieDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.MovieDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl.DatabaseMovieDao;
 
 public class AdminMovies extends HttpServlet{
 	/**

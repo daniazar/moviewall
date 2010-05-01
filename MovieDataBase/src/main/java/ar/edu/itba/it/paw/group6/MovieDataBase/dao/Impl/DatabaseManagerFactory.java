@@ -1,10 +1,10 @@
-package ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl;
+package ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.CommentDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.GenreDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.ManagerFactory;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.MovieDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.UserDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.CommentDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.GenreDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ManagerFactory;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.MovieDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.UserDao;
 
 
 public class DatabaseManagerFactory implements ManagerFactory {

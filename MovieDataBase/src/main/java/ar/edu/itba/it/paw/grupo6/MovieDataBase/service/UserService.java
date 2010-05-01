@@ -1,8 +1,8 @@
-package ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao;
+package ar.edu.itba.it.paw.grupo6.MovieDataBase.service;
 
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
 
-public interface UserDao {
+public interface UserService {
 
 	//public User getLoguedUser(HttpServletRequest req);
 	

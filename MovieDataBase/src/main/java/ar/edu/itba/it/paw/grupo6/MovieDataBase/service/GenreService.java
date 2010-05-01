@@ -1,8 +1,8 @@
-package ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao;
+package ar.edu.itba.it.paw.grupo6.MovieDataBase.service;
 
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
 
-public interface GenreDao {
+public interface GenreService {
 	
 	public Iterable<Genre> getAll();
 	

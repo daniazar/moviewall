@@ -6,30 +6,29 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.CommentDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.GenreDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ManagerFactory;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.MovieDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl.DatabaseManagerFactory;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments.Comment;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.CommentDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.GenreDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.ManagerFactory;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.MovieDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl.DatabaseManagerFactory;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.MovieGenre;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.SiteMovieGenre;
 
 public class Movie {
 
-	int		movieId;
-	int		cantComments;
-	float	rating;
-	int		duration;
-	String	title;
-	String	director;
-	String	imgUrl;
-	String	synopsis;
-	Date	release;
-	Date 	creation;
-	List<MovieGenre> genres;
-	ManagerFactory factory;
+	private int		movieId;
+	private float	rating;
+	private int		duration;
+	private String	title;
+	private String	director;
+	private String	imgUrl;
+	private String	synopsis;
+	private Date	release;
+	private Date 	creation;
+	private List<MovieGenre> genres;
+	private ManagerFactory factory;
 
 
 

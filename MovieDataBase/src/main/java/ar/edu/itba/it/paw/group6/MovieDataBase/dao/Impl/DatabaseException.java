@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl;
+package ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl;
 
 
 public class DatabaseException extends RuntimeException {

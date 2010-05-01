@@ -1,4 +1,4 @@
-package ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl;
+package ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -8,10 +8,11 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.ConnectorManager;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.UserDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ConnectorManager;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.UserDao;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
-
+import org.springframework.stereotype.Repository;
+@Repository
 public class DatabaseUserDao implements UserDao{
 
 	private static final String USERNAME = "postgres";

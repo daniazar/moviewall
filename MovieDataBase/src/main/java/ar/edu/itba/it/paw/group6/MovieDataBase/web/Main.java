@@ -5,14 +5,15 @@ package ar.edu.itba.it.paw.group6.MovieDataBase.web;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl.DatabaseManagerFactory;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl.DatabaseManagerFactory;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies.Movie;
+import ar.edu.itba.it.paw.grupo6.MovieDataBase.service.MovieService;
+import ar.edu.itba.it.paw.grupo6.MovieDataBase.service.Impl.MovieServiceImpl;
 
 
 public class Main extends HttpServlet {
@@ -22,8 +23,8 @@ public class Main extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		
-		Iterable<Movie> movies = manfact.getMovieManager().getMoviesByModification();
+		MovieService movServ = new MovieServiceImpl(manfact.getMovieManager()); 
+		Iterable<Movie> movies = movServ.getMoviesByModification();
 		ArrayList<Movie> m= new ArrayList<Movie>();
 		int i = 0;
 		for (Movie movie : movies) {

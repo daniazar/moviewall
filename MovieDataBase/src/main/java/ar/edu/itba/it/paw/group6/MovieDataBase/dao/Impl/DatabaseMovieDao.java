@@ -1,4 +1,4 @@
-package ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl;
+package ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -6,19 +6,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.ConnectorManager;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.MovieDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ConnectorManager;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.MovieDao;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.OnDemandGenre;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies.Movie;
-
+import org.springframework.stereotype.Repository;
+@Repository
 
 public class DatabaseMovieDao implements MovieDao{
 	
@@ -28,23 +27,6 @@ public class DatabaseMovieDao implements MovieDao{
 	
 	private ConnectorManager connectionManager;
 
-    static final Comparator<Movie> RATING = new Comparator<Movie>() {
-        public int compare(Movie e1, Movie e2) {
-            return ((Float)e2.getRating()).compareTo(e1.getRating());
-        	}
-        };
-
-    static final Comparator<Movie> MODIFICATION = new Comparator<Movie>() {
-         public int compare(Movie e1, Movie e2) {
-        	 return e2.getCreation().compareTo(e1.getCreation());
-         	}
-        };
-        
-        static final Comparator<Movie> RELEASE = new Comparator<Movie>() {
-            public int compare(Movie e1, Movie e2) {
-                return e2.getRelease().compareTo(e1.getRelease());
-            	}
-            };
 
         
 	public static synchronized MovieDao getInstance() {
@@ -139,14 +121,7 @@ public class DatabaseMovieDao implements MovieDao{
 		return this.getMoviesGeneric("");
 	}
 
-	public Iterable<Movie> getBefore() {
-		
-		Iterable<Movie> mov = this.getAllMovies();
-		Collections.sort((ArrayList<Movie>)mov, RELEASE);
-		return mov;
-		
-	}
-
+	
 	public Iterable<Movie> getMovie(String name) {
 		
 		return this.getMoviesGeneric("");
@@ -155,18 +130,6 @@ public class DatabaseMovieDao implements MovieDao{
 	public Iterable<Movie> getMoviesByComments() {
 		
 		return this.getMoviesGeneric("");
-	}
-
-	public Iterable<Movie> getMoviesByRanking() {
-		Iterable<Movie> mov = this.getAllMovies();
-		Collections.sort((ArrayList<Movie>)mov, RATING);
-		return mov;
-	}
-
-	public Iterable<Movie> getMoviesByModification() {
-		Iterable<Movie> mov = this.getAllMovies();
-		Collections.sort((ArrayList<Movie>)mov, MODIFICATION);
-		return mov;
 	}
 
 	public boolean removeMovie(int id) {

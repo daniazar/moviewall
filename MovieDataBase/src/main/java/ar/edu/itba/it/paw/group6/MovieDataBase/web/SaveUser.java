@@ -7,8 +7,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.UserDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl.DatabaseManagerFactory;
+
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.UserDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl.DatabaseManagerFactory;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
 
 public class SaveUser extends HttpServlet{

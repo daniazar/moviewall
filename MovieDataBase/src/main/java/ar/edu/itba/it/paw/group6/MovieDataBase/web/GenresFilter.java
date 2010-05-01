@@ -12,8 +12,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.ManagerFactory;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl.DatabaseManagerFactory;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ManagerFactory;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl.DatabaseManagerFactory;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
 
 

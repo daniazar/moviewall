@@ -1,4 +1,4 @@
-package ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao;
+package ar.edu.itba.it.paw.group6.MovieDataBase.dao;
 
 
 public interface ManagerFactory {

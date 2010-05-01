@@ -1,4 +1,4 @@
-package ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl;
+package ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,12 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.ConnectorManager;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.GenreDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ConnectorManager;
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.GenreDao;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.OnDemandGenre;
 
-
+import org.springframework.stereotype.Repository;
+@Repository
 public class DatabaseGenreDao implements GenreDao {
 
 	
