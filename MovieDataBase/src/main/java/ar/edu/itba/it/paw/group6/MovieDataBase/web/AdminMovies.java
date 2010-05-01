@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.MovieManager;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.database.DatabaseMovieManager;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.MovieDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl.DatabaseMovieDao;
 
 public class AdminMovies extends HttpServlet{
 	/**
@@ -20,7 +20,7 @@ public class AdminMovies extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		MovieManager manager = DatabaseMovieManager.getInstance();
+		MovieDao manager = DatabaseMovieDao.getInstance();
 		
 		String q = req.getParameter("q");
 		

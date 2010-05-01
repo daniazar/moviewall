@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.MovieDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl.DatabaseManagerFactory;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.MovieManager;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.database.DatabaseManagerFactory;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.database.DatabaseObjectFactory;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.OnDemandGenre;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies.Movie;
 
 import java.io.*;
@@ -77,8 +77,8 @@ public class SaveMovie extends HttpServlet {
 		long d = new java.util.Date().getTime();
 		Date creation = new Date(d); 
 		
-		Movie movie = DatabaseObjectFactory.getInstance().getNewMovie(id, title, director, imgUrl, duration, release, sinopsys, creation);
-		MovieManager manager = DatabaseManagerFactory.getInstance().getMovieManager();
+		Movie movie = new Movie(id, title, director, imgUrl, duration, release, sinopsys, creation);
+		MovieDao manager = DatabaseManagerFactory.getInstance().getMovieManager();
 		manager.saveMovie(movie);
 
 		// Here the movie has id:
@@ -92,8 +92,7 @@ public class SaveMovie extends HttpServlet {
 			}
 			if (genres != null) {
 				for (String name : genres) {
-					Genre genero = DatabaseObjectFactory.getInstance()
-							.getNewGenre(name);
+					Genre genero = new OnDemandGenre(name);
 					DatabaseManagerFactory.getInstance().getMovieManager()
 							.addGenreToMovie(genero, movie);
 				}

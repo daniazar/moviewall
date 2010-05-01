@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.GenreDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl.DatabaseManagerFactory;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.GenreManager;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.database.DatabaseManagerFactory;
 
 @SuppressWarnings("serial")
 public class AdminNewMovie extends HttpServlet{
@@ -19,7 +19,7 @@ public class AdminNewMovie extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		GenreManager manager = DatabaseManagerFactory.getInstance().getGenreManager();
+		GenreDao manager = DatabaseManagerFactory.getInstance().getGenreManager();
 		//String id=req.getParameter("id");
 		//Movie m = manager.getMovie(Integer.valueOf(id));
 		Iterable <Genre> genres = manager.getAll();

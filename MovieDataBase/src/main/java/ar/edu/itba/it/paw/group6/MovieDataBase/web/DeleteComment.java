@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments.Comment;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.database.DatabaseManagerFactory;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl.DatabaseManagerFactory;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
 
 
@@ -24,7 +24,7 @@ public class DeleteComment extends HttpServlet {
 			
 			String id =req.getParameter("id");
 			Comment c = manfact.getCommentManager().getComment(id);
-			String userid = c.getUserId();
+			String userid = c.getUser().getUsername();
 			User user = (User) req.getSession().getAttribute("user");
 			
 			if( userid.equals(user.getUsername()) || user.getisAdmin())

@@ -7,10 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.UserManager;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.database.DatabaseManagerFactory;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.database.DatabaseObjectFactory;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.UserDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl.DatabaseManagerFactory;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
 
 public class SaveUser extends HttpServlet{
@@ -38,7 +36,7 @@ public class SaveUser extends HttpServlet{
 			username = aux;
 		}
 		
-		UserManager manager = DatabaseManagerFactory.getInstance().getUserManager();
+		UserDao manager = DatabaseManagerFactory.getInstance().getUserManager();
 		if (manager.getUser(username) == null) 
 		{
 				if ( (aux = req.getParameterValues("password")[0]) != null){
@@ -72,7 +70,7 @@ public class SaveUser extends HttpServlet{
 			boolean isVip = false;
 			boolean isAdmin = false;
 	
-			User user = DatabaseObjectFactory.getInstance().getNewUser(username, password, email, name, surname, isVip, isAdmin, date);
+			User user = new User(username, password, email, name, surname, isVip, isAdmin, date);
 	
 			manager.saveUser(user);
 			//

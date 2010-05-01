@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.MovieManager;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.database.DatabaseManagerFactory;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.MovieDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl.DatabaseManagerFactory;
 
 public class DeleteMovie extends HttpServlet{
 
@@ -20,7 +20,7 @@ public class DeleteMovie extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		MovieManager manager = DatabaseManagerFactory.getInstance().getMovieManager();
+		MovieDao manager = DatabaseManagerFactory.getInstance().getMovieManager();
 		
 		String id=req.getParameter("id");
 		String retURL = req.getParameter("retURL");

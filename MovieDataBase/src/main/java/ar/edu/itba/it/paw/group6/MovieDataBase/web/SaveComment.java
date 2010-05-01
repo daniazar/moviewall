@@ -9,18 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments.Comment;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.factory.ObjectFactory;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.CommentManager;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.ManagerFactory;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.database.DatabaseManagerFactory;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.database.DatabaseObjectFactory;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.CommentDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.ManagerFactory;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl.DatabaseManagerFactory;
 
 
 public class SaveComment extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private ManagerFactory factory = DatabaseManagerFactory.getInstance();
-	private ObjectFactory ofactory = DatabaseObjectFactory.getInstance();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,14 +31,14 @@ public class SaveComment extends HttpServlet {
 			
 			if(argsAreValid(r, m, u, c)){
 				
-				CommentManager manager = factory.getCommentManager();
+				CommentDao manager = factory.getCommentManager();
 				int rating = Integer.valueOf(r);
 				if(!(0 <= rating && rating <= 5))
 					throw new NumberFormatException("Rating must be between 0 and 5");
 				
 				int movieid = Integer.valueOf(m);
 									
-				Comment comment = ofactory.getNewComment(movieid, u, c, new Date((new java.util.Date()).getTime()), rating);
+				Comment comment = new Comment(factory.getMovieManager().getMovie(movieid), factory.getUserManager().getUser(u), c, new Date((new java.util.Date()).getTime()), rating);
 				manager.saveComment(comment);
 			}
 			resp.sendRedirect(req.getHeader("referer"));

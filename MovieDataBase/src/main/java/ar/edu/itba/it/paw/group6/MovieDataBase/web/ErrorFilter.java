@@ -29,7 +29,7 @@ public class ErrorFilter implements Filter {
 			request.setAttribute("error", e);	
 
 			
-			//e.printStackTrace();
+			e.printStackTrace();
 //			((HttpServletResponse) response).sendRedirect(((HttpServletRequest) request).getContextPath() + "/error.jsp");
 			request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
 		}

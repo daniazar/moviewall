@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.ManagerFactory;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.MovieManager;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.database.DatabaseManagerFactory;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.ManagerFactory;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.MovieDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl.DatabaseManagerFactory;
 
 public class MovieSearch extends HttpServlet {
 
@@ -18,7 +18,7 @@ public class MovieSearch extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp){
 		
-		MovieManager manager = factory.getMovieManager();
+		MovieDao manager = factory.getMovieManager();
 		String q = req.getParameter("q");
 		
 		if(q == null)

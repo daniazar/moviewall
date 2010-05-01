@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.UserManager;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.managers.database.DatabaseUserManager;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.UserDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.dao.Impl.DatabaseUserDao;
 
 
 public class Admin extends HttpServlet {
@@ -17,7 +17,7 @@ public class Admin extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-		private UserManager manager = DatabaseUserManager.getInstance();
+		private UserDao manager = DatabaseUserDao.getInstance();
 	
 		@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
