@@ -2,7 +2,7 @@
 				<div><h1>Find movies</h1></div>
 				<div class="entry">
 					Enter movie keywords:
-					<form action = "MovieSearch">
+					<form action = "search">
 						<input type = "text" name = "q" value = ""/>
 						<input type = "submit" value = "Search!"/>		
 					</form>

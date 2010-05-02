@@ -151,7 +151,7 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	public Iterable<Movie> searchWith(String q) {
-		return searchWith(q);
+		return movieDao.searchWith(q);
 	}
 
 }

@@ -62,8 +62,16 @@ public class MovieController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
+	public ModelAndView search(@RequestParam("q") String  query) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject(service.searchWith(query));
+		return mav;
+	}
+	
+	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView genresList() {
 		ModelAndView mav = new ModelAndView();
 		return mav;
 	}
+	
 }

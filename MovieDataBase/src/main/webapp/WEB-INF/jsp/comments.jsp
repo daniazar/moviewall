@@ -12,7 +12,7 @@
 							</a>
 							<c:if test="${user.isAdmin || user.username == comment.user.username}">  
 							<a href="<c:url value="deletecomment"><c:param name="id" value="${comment.id}" /></c:url>">
-								<img src="images/delete.gif" style="float: right; cursor: pointer; border: 1px solid red; height: 10px; width: 10px;" alt="Delete comment"  />
+								<img src="../images/delete.gif" style="float: right; cursor: pointer; border: 1px solid red; height: 10px; width: 10px;" alt="Delete comment"  />
 							</a>
 							</c:if>
 							</dd>
@@ -31,7 +31,7 @@
 									 <c:when test = "${comment.rating <= 5}">Awesome!</c:when>
 								</c:choose> 
 								
-								 | Date: <fmt:formatDate value="${comment.date}" pattern="yyyy/MM/dd" />
+								  Date: <fmt:formatDate value="${comment.date}" pattern="yyyy/MM/dd" />
 							</p>
 							</li>
 						</div>	

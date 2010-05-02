@@ -12,11 +12,11 @@
 		<div id="latest-post" class="post">
 			<h1 class="title">Movies Search Results</h1>
 			<div class="entry">
-			<form class = "center">
+			<form class = "left corner blue">
 				<input id = "searchField" type = "text" name = "q" value = "${query}" class = "search"/><input type = "submit" value = "Search"/>
 			</form>
-				This are the results that matches your search.
-				
+				<h5>This are the results that matches your search.</h5>
+			<div class="left corner grey">	
 				<table class = "searchResult">
 					<tr class = "header">
 						<td class = "col">Name</td>
@@ -26,9 +26,9 @@
 						<td class = "col">Rating</td>
 						<td class = "col">Release</td>
 				</tr>
-				<c:forEach items = "${movies}" var = "m">
+				<c:forEach items = "${movieList}" var = "m">
 				<tr>
-					<td><a href = "viewMovie?code=${m.id}">${m.title}</a></td>
+					<td><a href = "viewMovie?movie=${m.id}">${m.title}</a></td>
 					<td>${m.director}</td>
 					<td>${m.duration}</td>
 					<td>${m.cantComments}</td>
@@ -45,6 +45,7 @@
 				</tr>
 				</c:forEach>
 				</table>
+				</div>
 			</div>
 		</div>			
 

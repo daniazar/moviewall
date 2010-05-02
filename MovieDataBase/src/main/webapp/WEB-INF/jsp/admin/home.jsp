@@ -1,6 +1,6 @@
 <html>
 	<head>
-	<link href="../css/adminStyle.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/adminStyle.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
 	

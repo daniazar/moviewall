@@ -5,8 +5,8 @@
 
 <html>
 	<head>
-		<link href="../css/adminStyle.css" rel="stylesheet" type="text/css" />
-		<script type = "text/javascript" src = "../js/jquery.js"></script>
+		<link href="../../css/adminStyle.css" rel="stylesheet" type="text/css" />
+		<script type = "text/javascript" src = "../../js/jquery.js"></script>
 		<script>
 			$(document).ready(function(){
 				$('#searchField').select();
@@ -30,7 +30,7 @@
 			</div>
 			<div id = "content">
 				<div class  = "search">
-					<form>
+					<form method="POST">
 						<input id = "searchField" type = "text" value = "${query}" name = "q"/><input type = "submit" value  = "Search Movie"/>
 					</form>
 				</div>
@@ -45,7 +45,7 @@
 							<td class = "col">Action</td>
 						</tr>
 						
-						 <c:forEach items="${movies}" var="m">
+						 <c:forEach items="${movieList}" var="m">
         				<tr class="elem">
           					<td class = "col">${m.title}</td>			
           					<td class = "col">${m.director}</td>
