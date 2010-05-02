@@ -22,7 +22,7 @@
 							<c:set var="row" value="${row + 1}" />
 							
 							<li>
-							<a href="<c:url value="listgenre"><c:param name="code" value="${genre.name}" /></c:url>">
+							<a href="<c:url value="genres"><c:param name="genre" value="${genre.name}" /></c:url>">
 									<c:out value="${genre.name}" />
 								</a>
 							</li>
@@ -30,7 +30,7 @@
 							<c:if test="${row == 5}">  
 								<c:set var="row" value="${row + 1}" />
 							
-								 <a href="listgenre">
+								 <a href="genresList">
 									more...
 								</a>
 							

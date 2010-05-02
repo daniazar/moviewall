@@ -1,8 +1,8 @@
 				<div id="recent-posts">
-					<div class="right green corner">
+					<div class="right grey corner">
 					<%@ include file="userbar.jsp" %>
 					</div>
-					<div class="right blue corner">
+					<div class="right yellow corner">
 					
 					<%@ include file="findMovies.jsp" %>
 					</div>

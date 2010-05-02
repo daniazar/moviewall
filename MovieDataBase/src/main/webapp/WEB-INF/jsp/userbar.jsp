@@ -22,15 +22,16 @@
 			<div class="post">
 				<div class="entry">
 					Enter username and password to enter the system
-					<form method="POST" action="login">
-						<dl>
-							<dt><span class = "left">Username: </span><span class = "right"><input type = "text" name = "username" /></span></dt>
-							<dt><span class = "left">Password: </span><span class = "right"><input type = "password" name = "password" /></span></dt>
+					<form method="POST" action="login2">
+							<dl>
+							<dt><span class = "left">Username: </span><span class = "right"><input type = "text" name="username" />	
+							</span></dt>
+							<dt><span class = "left">Password: </span><span class = "right"><input type = "password" name="password" />
+							</span></dt>
 							<dt>   <input type = "submit" value = "Sign in"/></dt>
 							<dt> Not yet a member?<a href = "register">  Register </a> </dt>
 						</dl>
 					</form>
-					<div class="error"><c:out value="${error}" /></div>
 				</div>
 			</div>	
 			</c:otherwise>

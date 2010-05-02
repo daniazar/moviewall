@@ -29,7 +29,7 @@ public class Movie {
 	private Date 	creation;
 	private List<MovieGenre> genres;
 	private ManagerFactory factory;
-
+	private int cantComments = 0;
 
 
 	public Movie (int movieId, String title, String director, String imgUrl, int duration, Date release, String synopsis, Date creation){
@@ -110,16 +110,9 @@ public class Movie {
 	// Comment:
 	
 
-	public Iterable<Comment> getComments() {
 
-		CommentDao manager =  factory.getCommentManager();
-		return manager.getComments(this);
-	}
-
-	public int getCantComments() {
-
-		CommentDao manager =  factory.getCommentManager();
-		return manager.getCantComments(this.movieId);
+	public int getCantComments() {		
+		return cantComments;
 	}
 	
 	public void removeComment(Comment comment) {
@@ -246,5 +239,9 @@ public class Movie {
 	}
 	public String getImgUrl() {
 		return this.imgUrl;
+	}
+	
+	public void setCantComments(int cantComments) {
+		this.cantComments = cantComments;
 	}
 }

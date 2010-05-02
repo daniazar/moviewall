@@ -185,6 +185,7 @@ img.right {
 	display: inline;
 }
 
+
 #menu a {
 	display: block;
 	float: left;
@@ -200,6 +201,8 @@ img.right {
 }
 
 #menu a:hover {
+	background: black;
+	
 }
 
 #menu .current_page_item a {
@@ -242,6 +245,15 @@ img.right {
 	font-family: Tahoma, Arial, Helvetica, sans-serif;
 	font-size: 10px;
 	color: #B4B4B4;
+}
+
+#latest-post h5 {
+	margin-top: 5px;
+	padding: 0;
+	line-height: normal;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color: white;
 }
 
 #latest-post .meta a {
@@ -421,9 +433,11 @@ span.left {
 	width: 30%;
 }
 
-span.right {
-	float:right;
-	width: 65%;
+span.middle {
+	width: 55%;
+}
+span.error {
+	color: red;
 }
 
 div.corner {

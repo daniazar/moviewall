@@ -238,7 +238,7 @@ public class DatabaseMovieDao implements MovieDao{
 	
 	// Funciones relacionadas con genero.
 	
-	public Iterable<Movie> getMoviesByGenre(String genre) {
+	public Iterable<Movie> getMoviesByGenre(Genre genre) {
 
 		ArrayList<Movie> list = new ArrayList<Movie>();
 
@@ -247,7 +247,7 @@ public class DatabaseMovieDao implements MovieDao{
 			Connection connection = connectionManager.getConnection();
 			PreparedStatement selectMovies = connection.prepareStatement
 				("SELECT DISTINCT id, duration, synopsis, director, release, title, imgurl, insertDate " +
-						"FROM movie, has_genre WHERE movie.id = has_genre.movie AND has_genre.genre LIKE '" + genre +"'");
+						"FROM movie, has_genre WHERE movie.id = has_genre.movie AND has_genre.genre LIKE '" + genre.getName() +"'");
 			
 			ResultSet results = selectMovies.executeQuery();
 			

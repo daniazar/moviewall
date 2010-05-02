@@ -42,14 +42,14 @@ public class DatabaseCommentDao implements CommentDao {
 	}
 
 	@Override
-	public int getCantComments(int id) {
+	public int getCantComments(Movie movie) {
 		// select count(*) from comment join movie on comment.movie = movie.id where comment.movie=2;
 		int cant=0;
 		try {
 			
 			Connection connection = connectionManager.getConnection();
 			PreparedStatement commentStmt = connection.prepareStatement("select count(*) from comment join movie on comment.movie = movie.id where comment.movie=?");
-			commentStmt.setInt(1, id);
+			commentStmt.setInt(1, movie.getId());
 			ResultSet results = commentStmt.executeQuery();
 			if (results.next()) {	
 				cant = results.getInt(1);
