@@ -8,6 +8,7 @@ import java.util.Set;
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.MovieDao;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies.Movie;
+import ar.edu.itba.it.paw.group6.MovieDataBase.service.CommentService;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Service;
 public class MovieServiceImpl implements MovieService {
 
 	private MovieDao movieDao;
+	private CommentService commserv;
 	
     static final Comparator<Movie> RATING = new Comparator<Movie>() {
         public int compare(Movie e1, Movie e2) {
@@ -43,14 +45,16 @@ public class MovieServiceImpl implements MovieService {
 	
 	
     @Autowired
-	public MovieServiceImpl(MovieDao movieDao) {
+	public MovieServiceImpl(MovieDao movieDao, CommentService commserv) {
 		this.movieDao = movieDao;
+		this.commserv = commserv;
 		}
 
 	
 	@Override
 	public Set<Genre> GetMovieGenres(Movie movie) {
 			return movieDao.GetMovieGenres(movie);
+			
 	}
 
 	@Override
@@ -66,7 +70,14 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	public Iterable<Movie> getAllMovies() {
-		return movieDao.getAllMovies();
+		
+		Iterable<Movie> movies = movieDao.getAllMovies();
+		 
+		 for (Movie movie : movies) {
+			 commserv.SetCantComments(movie);
+		}
+		return movies;
+
 	}
 
 	@Override
@@ -81,24 +92,42 @@ public class MovieServiceImpl implements MovieService {
 			}
 				i++;
 		}
+		 for (Movie movie : m) {
+			 commserv.SetCantComments(movie);
+		}
+		
 		return m;
 	
 	}
 
 	@Override
 	public Movie getMovie(int id) {
-		return movieDao.getMovie(id);
+		Movie movie = movieDao.getMovie(id);
+		return movie;
 	}
 
 	@Override
 	public Iterable<Movie> getMovie(String name) {
-		return movieDao.getMovie(name);
+		Iterable<Movie> movies = movieDao.getMovie(name);
+		 
+		 for (Movie movie : movies) {
+			 commserv.SetCantComments(movie);
+		}
+		return movies;
+		
 	}
 
 
 	@Override
 	public Iterable<Movie> getMoviesByGenre(Genre genre) {
-		return movieDao.getMoviesByGenre(genre);
+		
+		Iterable<Movie> movies = movieDao.getMoviesByGenre(genre);
+		 
+		 for (Movie movie : movies) {
+			 commserv.SetCantComments(movie);
+		}
+		return movies;
+		
 		}
 
 	@Override
@@ -113,6 +142,11 @@ public class MovieServiceImpl implements MovieService {
 			}
 				i++;
 		}
+		
+		 
+		 for (Movie movie : m) {
+			 commserv.SetCantComments(movie);
+		}		
 		return m;
 
 	}
@@ -129,17 +163,22 @@ public class MovieServiceImpl implements MovieService {
 			}
 				i++;
 		}
+		
+		 for (Movie movie : m) {
+			 commserv.SetCantComments(movie);
+		}		
+
 		return m;
 	
 	}
 
 	@Override
-	public boolean removeMovie(int id) {
+	public boolean deleteMovie(int id) {
 		return movieDao.removeMovie(id);
 	}
 
 	@Override
-	public boolean removeMovie(Movie movie) {
+	public boolean deleteMovie(Movie movie) {
 		return movieDao.removeMovie(movie);
 
 	}
@@ -151,7 +190,14 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	public Iterable<Movie> searchWith(String q) {
-		return movieDao.searchWith(q);
+		Iterable<Movie> movies = movieDao.searchWith(q);
+		 
+		 for (Movie movie : movies) {
+			 commserv.SetCantComments(movie);
+		}
+		return movies;
+		
+
 	}
 
 }

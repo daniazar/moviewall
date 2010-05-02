@@ -13,13 +13,15 @@
 							}
 
 							if($('#comment').val() == "" || $('#comment').val() == 'Add your comment!'){
+								alert('Add your comment!');
+								
 								return false;
 							}
 							return true;
 						}
 					</script>
 					  
-					<form method="POST" action="savecomment?user=${user.username}&movieid=${movie.id}" onsubmit = "return validate();">
+					<form method="POST" action="savecomment" onsubmit = "return validate();">
 						<ul>
 							<li>Username: <i><c:out value="${user.username}" /></i></li>
 							<li>Raiting :<select name = "rating" id  = "rating">
@@ -33,6 +35,10 @@
 							<br/>
 							<textarea type = "text" cols = "69" rows = "6" name = "comment" id = "comment" onblur = "if(this.value.length == 0) this.value = 'Add your comment!';"onclick = "if(this.value == 'Add your comment!') this.value = '';"/>Add your comment!</textarea>
 							<br/>
+							<input type="hidden" name="user" value=<c:out value="${user.username}"/>> 
+							<input type="hidden" name="movie" value=<c:out value="${movie.id}" />> 
+
+							
 							<input type = "submit" value = "Submit"/>
 						</ul>
 					</form>

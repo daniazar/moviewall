@@ -43,24 +43,24 @@
 <!-- start header -->
 <div id="header">
 	<div id=logo>
-		<a href="main"><img src="../../images/logo.png" height="70" width="180" style="float: left;"/> </a>
-		<p></p><p></p><p>&nbsp;&nbsp;&nbsp; <a href="main">did you enjoyed it?</a></p>
+		<a href="../movie/main"><img src="../../images/logo.png" height="70" width="180" style="float: left;"/> </a>
+		<p></p><p></p><p>&nbsp;&nbsp;&nbsp; <a href="../movie/main">did you enjoyed it?</a></p>
 	</div>
 	
 	<div id="menu">
 		<ul>
-			<li><a href="main">Home</a></li>
-			<li><a href="/MovieWall/web/general/about">About us</a></li>
-			<li><a href="/MovieWall/web/movies/viewAllMovies">Movies</a></li>
-			<li>  <a href="/MovieWall/web/user/allusers">Users</a></li>
+			<li><a href="../movie/main">Home</a></li>
+			<li><a href="../general/about">About us</a></li>
+			<li><a href="../movie/allmovies">Movies</a></li>
+			<li>  <a href="../user/allusers">Users</a></li>
 			<c:choose>
 		<c:when test="${not empty user}">
-		<a href="<c:url value="profile"><c:param name="code" value="${user.username}" /></c:url>"><c:out value="${user.username}" /> </a>
-		<a href="logout">Logout</a>
+		<a href="<c:url value="../user/profile"><c:param name="user" value="${user.username}" /></c:url>"><c:out value="${user.username}" /> </a>
+		<a href="../user/logout">Logout</a>
 			 
 		</c:when>
 		<c:otherwise>
-			<span style="float: right;"> <a href="login">Login</a> <a href="register">Register</a></span>				
+			<span style="float: right;"> <a href="../user/login">Login</a> <a href="register">Register</a></span>				
 		</c:otherwise>
 	</c:choose>
 			

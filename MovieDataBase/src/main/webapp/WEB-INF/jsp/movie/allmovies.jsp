@@ -7,7 +7,7 @@
 		<div id="latest-post" class="post">
 			<h1 class="title">All the movies in the system</h1>
 			<div class="entry">
-				<%@ include file="../movies.jsp" %>
+				<%@ include file="movies.jsp" %>
 				
 			</div>
 		</div>			

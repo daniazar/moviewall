@@ -1,4 +1,4 @@
-package ar.edu.itba.it.paw.group6.MovieDataBase.web;
+package ar.edu.itba.it.paw.group6.MovieDataBase.web.filter;
 
 import java.io.IOException;
 

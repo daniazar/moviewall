@@ -2,14 +2,14 @@
 				<div><h1>Find movies</h1></div>
 				<div class="entry">
 					Enter movie keywords:
-					<form action = "search">
+					<form action = "../movie/search">
 						<input type = "text" name = "q" value = ""/>
 						<input type = "submit" value = "Search!"/>		
 					</form>
 					<br/>
 					
 					<ul>
-						<li><a href = "ranking">Top five movies</a></li>
+						<li><a href = "../movie/ranking">Top five movies</a></li>
 					</ul>
 				<h2>List movies by genre:</h2>
 					<ul>
@@ -22,7 +22,7 @@
 							<c:set var="row" value="${row + 1}" />
 							
 							<li>
-							<a href="<c:url value="genres"><c:param name="genre" value="${genre.name}" /></c:url>">
+							<a href="<c:url value="../movie/genres"><c:param name="genre" value="${genre.name}" /></c:url>">
 									<c:out value="${genre.name}" />
 								</a>
 							</li>
@@ -30,7 +30,7 @@
 							<c:if test="${row == 5}">  
 								<c:set var="row" value="${row + 1}" />
 							
-								 <a href="genresList">
+								 <a href="../movie/genresList">
 									more...
 								</a>
 							

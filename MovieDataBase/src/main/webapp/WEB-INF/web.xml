@@ -15,7 +15,7 @@
 
 	<filter>
 		<filter-name>GenresFilter</filter-name>
-		<filter-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.GenresFilter</filter-class>
+		<filter-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.filter.GenresFilter</filter-class>
 	</filter>
 
 	<filter-mapping>

@@ -1,33 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<%@ page contentType="text/html" %>
-<%@ page pageEncoding="UTF-8" %>
-
-<html>
-	<head>
-		<link href="../../css/adminStyle.css" rel="stylesheet" type="text/css" />
-		<script type = "text/javascript" src = "../../js/jquery.js"></script>
-		<script>
-			$(document).ready(function(){
-				$('#searchField').select();
-			});
-		</script>
-	</head>
-	<body>
-	
-		<div id = "wrapper">
-			<div id = "header" class = "blue">
-				Admin Section
-			</div>
-			<div id = "leftmenu" class = "blue">
-				<ul>
-					<li><a href = "home">Admin Home</a></li>
-					<li><a href = "../main">Main Home</a></li>
-					<li><span class = "selected">Movies</span></li>
-					<li><a href = "users">Users</a></li>
-					<li><a href = "../logout">Logout</a></li>
-				</ul>
-			</div>
+<%@ include file="header.jsp" %>
 			<div id = "content">
 				<div class  = "search">
 					<form method="POST">
@@ -50,9 +21,13 @@
           					<td class = "col">${m.title}</td>			
           					<td class = "col">${m.director}</td>
           					<td class = "col">${m.release}</td>
-							<td class = "col">${m.rating}</td>
+							<td class = "col">
+							<c:if test="${m.rating <= 0} ">not rated</c:if> 
+							<c:if test="${m.rating == 3.0} ">${m.rating}"</c:if>
+							${m.rating} 
+							</td>
 							<td class= "col"> ${m.cantComments}</td>
-							<td class = "col"> <a href = "deletemovie?id=${m.id}&retURL=movies" onclick = "return confirm('Are you sure? This cannot be undone');" >Delete</a>&nbsp;<a href = "movie?id=${m.id}">Edit</a> </td>
+							<td class = "col"> <a href = "deletemovie?movie=${m.id}" onclick = "return confirm('Are you sure? This cannot be undone');" >Delete</a>&nbsp;<a href = "movie?id=${m.id}">Edit</a> </td>
           				
           				</tr>
       					</c:forEach>  

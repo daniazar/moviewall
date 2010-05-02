@@ -10,7 +10,7 @@
 				<%@ include file="movie.jsp" %>
 				<h5>Green boxes means the comment is form a trusted and special users.</h5>
 				<%@ include file="../comments.jsp" %>
-				<%@ include file="../newComment.jsp" %>
+				<%@ include file="newComment.jsp" %>
 				
 			</div>
 		</div>			

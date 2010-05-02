@@ -1,4 +1,4 @@
-package ar.edu.itba.it.paw.group6.MovieDataBase.web;
+package ar.edu.itba.it.paw.group6.MovieDataBase.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

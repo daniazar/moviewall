@@ -161,6 +161,9 @@ public class Movie {
 
 	// Rating:
 
+	public void setRating(float rating) {
+		this.rating = rating;
+	}
 	public float getRating() {
 		if( rating == 0)
 		{

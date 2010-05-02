@@ -19,6 +19,7 @@ public class Comment {
 		this.id = id;			
 		this.movie = movie;
 		this.user = user;
+		validate();
 	}
 
 	public Comment(Movie movie, User user, String content, Date date,
@@ -29,7 +30,13 @@ public class Comment {
 		this.raiting = raiting;
 		this.movie = movie;
 		this.user = user;
-			
+		validate();	
+	}
+	
+	private void validate(){
+		if(!(0 <= raiting && raiting <= 5))
+			throw new NumberFormatException("Rating must be between 0 and 5");
+
 	}
 	
 	

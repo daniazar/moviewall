@@ -47,17 +47,17 @@ public class CommentServiceImpl implements CommentService {
 
 	@Override
 	public boolean removeComment(Comment comment) {
-		return removeComment(comment);
+		return commDao.removeComment(comment);
 	}
 
 	@Override
 	public boolean removeComment(String id) {
-		return removeComment(id);
+		return commDao.removeComment(id);
 	}
 
 	@Override
 	public void saveComment(Comment comment) {
-		saveComment(comment);
+		commDao.saveComment(comment);
 
 	}
 

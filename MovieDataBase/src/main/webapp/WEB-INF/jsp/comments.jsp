@@ -4,15 +4,15 @@
 					<c:forEach items="${commentList}" var="comment">
 						<div class = "left corner <c:if test="${row % 2 == 0 && ! comment.user.isVip}">blue</c:if><c:if test="${row % 2 != 0 && ! comment.user.isVip}">yellow </c:if> <c:if test="${comment.user.isVip}">green </c:if>	">
 							<li class="<c:set var="row" value="${row + 1}" />" style="list-style-type: none; padding: 10px;">
-							<a href="<c:url value="profile"><c:param name="user" value="${comment.user.username}" /></c:url>">
+							<a href="<c:url value="../user/profile"><c:param name="user" value="${comment.user.username}" /></c:url>">
 								<c:out value="${comment.user.username}" />
 							</a>  |  
-							<a href="<c:url value="viewMovie"><c:param name="code" value="${comment.movie.id}"  /></c:url>">
+							<a href="<c:url value="../movie/viewMovie"><c:param name="movie" value="${comment.movie.id}"  /></c:url>">
 								<c:out value="${comment.movie.title}" />
 							</a>
 							<c:if test="${user.isAdmin || user.username == comment.user.username}">  
-							<a href="<c:url value="deletecomment"><c:param name="id" value="${comment.id}" /></c:url>">
-								<img src="../images/delete.gif" style="float: right; cursor: pointer; border: 1px solid red; height: 10px; width: 10px;" alt="Delete comment"  />
+							<a href="<c:url value="../general/deletecomment"><c:param name="comment" value="${comment.id}" /></c:url>">
+								<img src="../../images/delete.gif" style="float: right; cursor: pointer; border: 1px solid red; height: 10px; width: 10px;" alt="Delete comment"  />
 							</a>
 							</c:if>
 							</dd>

@@ -1,6 +1,6 @@
-package ar.edu.itba.it.paw.group6.MovieDataBase.web;
+package ar.edu.itba.it.paw.group6.MovieDataBase.web.controller;
 
-import java.util.ArrayList;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.dao.CommentDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies.Movie;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments.Comment;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.CommentService;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.MovieService;
 
@@ -31,11 +31,25 @@ public class GeneralController {
 		return null;
 	}
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView viewMovie(@RequestParam("movie") Movie movie) {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject(movie);
-		mav.addObject(commService.getComments(movie));
-		return mav;
+	public String deletecomment(@RequestParam("comment") Comment comment, HttpServletRequest req) {
+		
+		
+		User user = (User) req.getSession().getAttribute("user");
+		if( comment.getUser().getUsername().equals(user.getUsername()) || user.getisAdmin())
+		{
+			commService.removeComment(comment);
+			
+		}			
+		else {
+			
+			req.setAttribute("error", "You are only able to delete comments if you are admin or the creator of it.");
+						
+		}
+		String redirect = "redirect:" +  req.getHeader("referer");
+		System.err.println(req.getHeader("referer"));
+		return redirect;
+		
+		
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
@@ -43,6 +57,7 @@ public class GeneralController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject(service.getMoviesByRanking());
 		return mav;
+		
 	}
 	
 }

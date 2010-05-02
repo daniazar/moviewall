@@ -8,8 +8,8 @@ import ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies.Movie;
 
 public interface MovieService {
 	
-	public boolean removeMovie(int id);
-	public boolean removeMovie(Movie movie);
+	public boolean deleteMovie(int id);
+	public boolean deleteMovie(Movie movie);
 	public void saveMovie(Movie movie);
 	
 	public Movie getMovie(int id);

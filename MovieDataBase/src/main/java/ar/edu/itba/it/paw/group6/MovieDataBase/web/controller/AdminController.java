@@ -1,4 +1,4 @@
-package ar.edu.itba.it.paw.group6.MovieDataBase.web;
+package ar.edu.itba.it.paw.group6.MovieDataBase.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -49,6 +49,16 @@ public class AdminController {
 				mav.addObject("query",query);
 		return mav;
 	}
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public String deletemovie(@RequestParam("movie") Movie movie, HttpServletRequest req) {
+		ModelAndView mav = new ModelAndView();
+				movService.deleteMovie(movie);
+				String redirect = "redirect:" +  req.getHeader("referer");
+				
+				return redirect;
+	}
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView movies() {
 		ModelAndView mav = new ModelAndView();
@@ -75,5 +85,28 @@ public class AdminController {
 		return mav;
 	}
 
-	
+
+	@RequestMapping(method = RequestMethod.GET)
+	public String userupgrade(@RequestParam("userp") User user,@RequestParam("admin") String a,@RequestParam("vip") String v, HttpServletRequest req) {
+		ModelAndView mav = new ModelAndView();
+				boolean vip = false, admin = false;
+				if (v.equals( "true"))
+				{
+					vip = true;
+				}
+				if (a.equals( "true"))
+				{
+					admin = true;
+				}
+
+				user.setVip(vip);
+				user.setAdmin(admin);
+				service.saveUser(user);
+				
+				
+				String redirect = "redirect:" +  req.getHeader("referer");
+				
+				return redirect;
+	}
+
 }

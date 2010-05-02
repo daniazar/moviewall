@@ -1,34 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<%@ page contentType="text/html" %>
-<%@ page pageEncoding="UTF-8" %>
-
-<html>
-	<head>
-		<link href="../../css/adminStyle.css" rel="stylesheet" type="text/css" />
-		<script type = "text/javascript" src = "../../js/jquery.js"></script>
-		<script>
-			$(document).ready(function(){
-				$('#searchField').select();
-			});
-		</script>
-	
-	</head>
-	<body>
-	
-		<div id = "wrapper">
-			<div id = "header" class = "blue">
-				Admin Section
-			</div>
-			<div id = "leftmenu" class = "blue">
-				<ul>
-					<li><a href = "home">Admin Home</a></li>
-					<li><a href = "../main">Main Home</a></li>
-					<li><a href = "movies">Movies</a></li>
-					<li><span class = "selected">Users</span></li>
-					<li><a href = "../logout">Logout</a></li>
-				</ul>
-			</div>
+<%@ include file="header.jsp" %>
 			<div id = "content">
 				<div class  = "search">
 					<form method="POST">
@@ -57,7 +27,7 @@
           					<td class = "col"> ${user.cantComments}</td>
 							
 			
-          					<td class= "col"> <a href="<c:url value="userupgrade"><c:param name="code" value="${user.username}"/>
+          					<td class= "col"> <a href="<c:url value="userupgrade"><c:param name="userp" value="${user.username}"/>
 																<c:param name="admin" value="${user.isAdmin}"/>
 																<c:param name="vip" value="${not user.isVip}"/>
 							</c:url>">
@@ -65,7 +35,7 @@
 							</a> </td>
 							
 							          					<td class = "col"> 
-							<a href="<c:url value="userupgrade"><c:param name="code" value="${user.username}"/>
+							<a href="<c:url value="userupgrade"><c:param name="userp" value="${user.username}"/>
 																<c:param name="admin" value="${not user.isAdmin}"/>
 																<c:param name="vip" value="${user.isVip}"/>
 							</c:url>">
