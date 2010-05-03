@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.Genre;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.GenreService;
 
 @Component

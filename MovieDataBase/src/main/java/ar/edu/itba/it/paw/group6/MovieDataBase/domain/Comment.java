@@ -1,12 +1,10 @@
 /**
  * 
  */
-package ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments;
+package ar.edu.itba.it.paw.group6.MovieDataBase.domain;
 
 import java.sql.Date;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies.Movie;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
 
 public class Comment {
 

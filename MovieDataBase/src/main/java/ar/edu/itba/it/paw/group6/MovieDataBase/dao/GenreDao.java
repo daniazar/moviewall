@@ -1,6 +1,6 @@
 package ar.edu.itba.it.paw.group6.MovieDataBase.dao;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.Genre;
 
 public interface GenreDao {
 	

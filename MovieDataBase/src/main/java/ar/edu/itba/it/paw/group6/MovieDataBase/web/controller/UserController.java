@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.User;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.CommentService;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.UserService;
 import ar.edu.itba.it.paw.group6.MovieDataBase.web.command.LoginForm;

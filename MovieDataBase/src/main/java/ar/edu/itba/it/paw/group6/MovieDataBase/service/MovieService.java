@@ -3,8 +3,8 @@ package ar.edu.itba.it.paw.group6.MovieDataBase.service;
 
 import java.util.Set;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies.Movie;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.Genre;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.Movie;
 
 public interface MovieService {
 	

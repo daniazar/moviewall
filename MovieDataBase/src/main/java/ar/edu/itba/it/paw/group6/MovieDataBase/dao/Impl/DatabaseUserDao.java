@@ -10,7 +10,8 @@ import java.util.List;
 
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ConnectorManager;
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.UserDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.User;
+
 import org.springframework.stereotype.Repository;
 @Repository
 public class DatabaseUserDao implements UserDao{

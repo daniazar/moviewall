@@ -1,4 +1,4 @@
-package ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies;
+package ar.edu.itba.it.paw.group6.MovieDataBase.domain;
 
 
 import java.sql.Date;
@@ -11,10 +11,7 @@ import ar.edu.itba.it.paw.group6.MovieDataBase.dao.GenreDao;
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ManagerFactory;
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.MovieDao;
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl.DatabaseManagerFactory;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments.Comment;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.MovieGenre;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.SiteMovieGenre;
+
 
 public class Movie {
 
@@ -78,7 +75,7 @@ public class Movie {
 		Iterable<Genre> aux = genreManager.getAll();
 
 		for(Genre genre: aux) {
-			MovieGenre target = new SiteMovieGenre(genre.getName());
+			MovieGenre target = new MovieGenre(genre.getName());
 			if(movieGenres.contains(genre)) {
 				target.addMovieGenreTag();
 			}	

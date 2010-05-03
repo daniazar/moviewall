@@ -1,6 +1,6 @@
 package ar.edu.itba.it.paw.group6.MovieDataBase.web.command;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.User;
 
 public class LoginForm {
 	

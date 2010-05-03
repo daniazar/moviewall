@@ -6,8 +6,8 @@ import java.util.Comparator;
 import java.util.Set;
 
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.MovieDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies.Movie;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.Genre;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.Movie;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.CommentService;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;

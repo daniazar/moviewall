@@ -2,7 +2,7 @@ package ar.edu.itba.it.paw.group6.MovieDataBase.web.command;
 
 import java.sql.Date;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.User;
 
 public class RegisterForm {
 	
