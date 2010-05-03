@@ -1,7 +1,7 @@
 package ar.edu.itba.it.paw.group6.MovieDataBase.service.Impl;
 
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.GenreDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.Genre;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.GenreService;
 
 import org.springframework.beans.factory.annotation.Autowired;

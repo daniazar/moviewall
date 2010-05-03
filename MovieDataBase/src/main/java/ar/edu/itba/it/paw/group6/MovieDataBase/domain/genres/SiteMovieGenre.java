@@ -1,28 +1,28 @@
-package ar.edu.itba.it.paw.group6.MovieDataBase.domain;
+package ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres;
 
 
-public class MovieGenre extends OnDemandGenre implements Genre {
+public class SiteMovieGenre extends OnDemandGenre implements MovieGenre {
 
 	Boolean belongs;
 	
-	public MovieGenre(String name) {
+	public SiteMovieGenre(String name) {
 		super(name);
 		this.belongs = false;
 	}
 	
-	
+	@Override
 	public void addMovieGenreTag() {
 		this.belongs = true;
 		return;		
 	}
 	
-	
+	@Override
 	public void deleteMovieGenreTag() {
 		this.belongs = false;
 		return;
 	}
 	
-	
+	@Override
 	public boolean getMovieGenreTag() {
 		return belongs;
 	}

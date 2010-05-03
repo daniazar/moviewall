@@ -1,4 +1,4 @@
-package ar.edu.itba.it.paw.group6.MovieDataBase.domain;
+package ar.edu.itba.it.paw.group6.MovieDataBase.domain.users;
 
 import java.util.Date;
 

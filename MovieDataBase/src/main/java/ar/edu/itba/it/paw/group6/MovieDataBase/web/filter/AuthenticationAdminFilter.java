@@ -11,7 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.User;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
 
 public class AuthenticationAdminFilter implements Filter {
 

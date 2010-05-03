@@ -1,9 +1,9 @@
 package ar.edu.itba.it.paw.group6.MovieDataBase.service.Impl;
 
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.CommentDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.Comment;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.Movie;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.User;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments.Comment;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies.Movie;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.CommentService;
 
 import org.springframework.beans.factory.annotation.Autowired;

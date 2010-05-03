@@ -1,4 +1,4 @@
-package ar.edu.itba.it.paw.group6.MovieDataBase.domain;
+package ar.edu.itba.it.paw.group6.MovieDataBase.domain.users;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,6 +7,7 @@ import java.util.List;
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.CommentDao;
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ManagerFactory;
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl.DatabaseManagerFactory;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments.Comment;
 
 /*
  * Representa un usuario de la aplicaci�n

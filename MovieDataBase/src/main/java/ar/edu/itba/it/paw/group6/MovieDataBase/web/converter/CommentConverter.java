@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.Comment;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments.Comment;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.CommentService;
 
 @Component

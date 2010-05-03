@@ -4,7 +4,7 @@
 package ar.edu.itba.it.paw.group6.MovieDataBase.service.Impl;
 
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.UserDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.User;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;

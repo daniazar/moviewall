@@ -1,6 +1,6 @@
 package ar.edu.itba.it.paw.group6.MovieDataBase.service;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.Genre;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
 
 public interface GenreService {
 	

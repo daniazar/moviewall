@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ManagerFactory;
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl.DatabaseManagerFactory;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.Genre;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
 
 
 public class GenresFilter implements Filter {
