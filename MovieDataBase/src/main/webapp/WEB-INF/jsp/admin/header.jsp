@@ -1,7 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <%@ page contentType="text/html" %>
 <%@ page pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <html>
 	<head>
@@ -42,6 +43,7 @@
 							 	},
 						duration :{
 									required: true,
+									min: 1,
 							 	},
 						release: {
 									required: true,
@@ -61,7 +63,8 @@
 								minlength: "Director too short. Min 1 character."
 							},
 					duration: {
-								required: "Provide a duration."
+								required: "Provide a duration.",
+								min: "The duration must be positive"	
 						},
 					release: {
 								required: "Provide a date of release."

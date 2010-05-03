@@ -1,9 +1,6 @@
 package ar.edu.itba.it.paw.group6.MovieDataBase.web.command;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
-import ar.edu.itba.it.paw.group6.MovieDataBase.service.UserService;
 
 public class LoginForm {
 	

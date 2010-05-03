@@ -1,27 +1,22 @@
 package ar.edu.itba.it.paw.group6.MovieDataBase.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies.Movie;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.CommentService;
-import ar.edu.itba.it.paw.group6.MovieDataBase.service.MovieService;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.UserService;
 import ar.edu.itba.it.paw.group6.MovieDataBase.web.command.LoginForm;
 import ar.edu.itba.it.paw.group6.MovieDataBase.web.command.RegisterForm;
 import ar.edu.itba.it.paw.group6.MovieDataBase.web.validator.LoginFormValidator;
 import ar.edu.itba.it.paw.group6.MovieDataBase.web.validator.RegisterFormValidator;
-
-import org.springframework.validation.Errors;
 @Controller
 public class UserController {
 	
@@ -62,7 +57,7 @@ public class UserController {
 		User user=service.authenticate(loginForm.getUsername() , loginForm.getPassword());
 			if(user == null)
 			{
-				errors.reject("username","notexist");
+				errors.rejectValue("username","notexist");
 				return null;
 			}
 		
@@ -126,7 +121,7 @@ public class UserController {
 		try {
 			service.newUser(user);
 		} catch (Exception e) {
-			errors.reject("username","duplicate");
+			errors.rejectValue("username","duplicate");
 			return null;
 		}	
 		

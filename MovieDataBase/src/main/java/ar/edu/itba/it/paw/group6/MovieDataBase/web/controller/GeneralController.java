@@ -12,17 +12,15 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments.Comment;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.CommentService;
-import ar.edu.itba.it.paw.group6.MovieDataBase.service.MovieService;
+
 
 @Controller
 public class GeneralController {
 	
-	private MovieService service;
 	private CommentService commService;
 	
 	@Autowired
-	public GeneralController(MovieService service, CommentService commService ) {
-		this.service = service;
+	public GeneralController(CommentService commService ) {
 		this.commService = commService;
 	}
 	
@@ -35,7 +33,8 @@ public class GeneralController {
 		
 		
 		User user = (User) req.getSession().getAttribute("user");
-		if( comment.getUser().getUsername().equals(user.getUsername()) || user.getisAdmin())
+		
+		if(user != null && (comment.getUser().getUsername().equals(user.getUsername()) || user.getisAdmin()))
 		{
 			commService.removeComment(comment);
 			
@@ -52,12 +51,5 @@ public class GeneralController {
 		
 	}
 	
-	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView ranking() {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject(service.getMoviesByRanking());
-		return mav;
-		
-	}
 	
 }

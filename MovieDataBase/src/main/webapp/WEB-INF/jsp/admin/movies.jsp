@@ -27,7 +27,7 @@
 							${m.rating} 
 							</td>
 							<td class= "col"> ${m.cantComments}</td>
-							<td class = "col"> <a href = "deletemovie?movie=${m.id}" onclick = "return confirm('Are you sure? This cannot be undone');" >Delete</a>&nbsp;<a href = "movie?id=${m.id}">Edit</a> </td>
+							<td class = "col"> <a href = "deletemovie?movie=${m.id}" onclick = "return confirm('Are you sure? This cannot be undone');" >Delete</a>&nbsp;<a href = "movie?movie=${m.id}">Edit</a> </td>
           				
           				</tr>
       					</c:forEach>  

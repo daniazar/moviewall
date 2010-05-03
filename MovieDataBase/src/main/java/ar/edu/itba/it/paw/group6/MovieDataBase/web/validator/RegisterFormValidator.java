@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.web.command.LoginForm;
 import ar.edu.itba.it.paw.group6.MovieDataBase.web.command.RegisterForm;
 
 @Component

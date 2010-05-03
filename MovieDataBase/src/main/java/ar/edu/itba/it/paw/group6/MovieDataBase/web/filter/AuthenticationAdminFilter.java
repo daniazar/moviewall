@@ -29,7 +29,7 @@ public class AuthenticationAdminFilter implements Filter {
 		
 		if (!req.getRequestURL().toString().contains("css/style.css") && !req.getRequestURL().toString().contains("login")
 				&& req.getSession().getAttribute("user") == null) {
-			resp.sendRedirect(req.getContextPath() + "/login");
+			resp.sendRedirect(req.getContextPath() + "/web/user/login");
 		} else {
 			
 			User u = (User) req.getSession().getAttribute("user");
@@ -39,7 +39,7 @@ public class AuthenticationAdminFilter implements Filter {
 			}
 			else{
 	
-				resp.sendRedirect(req.getContextPath() + "/main");
+				resp.sendRedirect(req.getContextPath() + "/web/movie/main");
 			}
 		}
 	}

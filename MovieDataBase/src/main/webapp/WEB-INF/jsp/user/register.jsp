@@ -69,7 +69,7 @@
 							<dd><span class = "left">E-mail:(*)</span><form:input id = "email" type = "text" path = "email"/><span class="error"><form:errors path="email" /></span></dd>
 							<dd><span class = "left">Name:(*)</span><form:input id = "name" type = "text" path = "name"/><span class="error"><form:errors path="name" /></span></dd>
 							<dd><span class = "left">Surname:(*)</span><form:input id = "surname"type = "text" path = "surname"/><span class="error"><form:errors path="surname" /></span></dd>
-							<dd><span class = "left">Birthday:(*)</span><form:input id = "birth" type = "text" path = "birthday"  value = "YYYY-MM-DD"/><span class="error"><form:errors path="birthday" /></span>
+							<dd><span class = "left">Birthday:(*)</span><form:input id = "birth" type = "text" readonly="true" path = "birthday"  value = "YYYY-MM-DD"/><span class="error"><form:errors path="birthday" /></span>
 							<img src="../../js/calendar/img.gif" id="calendar" style="cursor: pointer; border: 1px solid red; height: 14px; width: 20px;" title="Date selector"
       							onmouseover="this.style.background='red';" onmouseout="this.style.background=''" /></dd>
 							<script type="text/javascript">

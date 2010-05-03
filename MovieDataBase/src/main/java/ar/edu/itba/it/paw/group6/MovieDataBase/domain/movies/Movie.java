@@ -60,6 +60,7 @@ public class Movie {
 		this.synopsis = synopsis;
 		long d = new java.util.Date().getTime();
 		creation = new Date(d); 
+		this.loadGenres();
 	}
 
 	// Genres:

@@ -24,4 +24,27 @@
 	</filter-mapping>
 
 
+
+	<filter>
+		<filter-name>errorFilter</filter-name>
+		<filter-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.filter.ErrorFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>errorFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+	<filter>
+		<filter-name>AuthenticationAdminFilter</filter-name>
+		<filter-class>ar.edu.itba.it.paw.group6.MovieDataBase.web.filter.AuthenticationAdminFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>AuthenticationAdminFilter</filter-name>
+		<url-pattern>/web/admin/*</url-pattern>
+	</filter-mapping>
+
+
 </web-app>
