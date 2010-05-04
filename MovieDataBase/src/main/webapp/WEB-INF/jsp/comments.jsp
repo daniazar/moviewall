@@ -10,6 +10,11 @@
 							<a href="<c:url value="../movie/viewMovie"><c:param name="movie" value="${comment.movie.id}"  /></c:url>">
 								<c:out value="${comment.movie.title}" />
 							</a>
+							<c:if test="${not empty user && !comment.flag}">  
+							<a href="<c:url value="../movie/flagcomment"><c:param name="comment" value="${comment.id}" /></c:url>">
+								<img src="../../images/flag.gif" style="float: right; cursor: pointer; border: 1px solid red; height: 10px; width: 50px;" alt="Delete comment"  />
+							</a>
+							</c:if>
 							<c:if test="${user.isAdmin || user.username == comment.user.username}">  
 							<a href="<c:url value="../general/deletecomment"><c:param name="comment" value="${comment.id}" /></c:url>">
 								<img src="../../images/delete.gif" style="float: right; cursor: pointer; border: 1px solid red; height: 10px; width: 10px;" alt="Delete comment"  />
@@ -18,6 +23,10 @@
 							</dd>
 
 							<br />
+							<c:if test="${comment.flag}">
+							<span class="error">This Comment has been flagged for admin review  </span>
+							<br/>	  
+							</c:if>
 							<span style="font-size: 15px;">
 								<c:out value="${comment.content}" />
 							</span>

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.Award;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments.Comment;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies.Movie;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
@@ -160,5 +162,71 @@ public class AdminController {
 					
 		return redirect;
 	}
+	@RequestMapping(method = RequestMethod.GET)
+	public String deleteaward(@RequestParam("award") Award award, @RequestParam("movie") Movie movie, HttpServletRequest req) {
+		movService.remove(movie, award);
+				return "redirect:" + req.getHeader("referer");
+	}
 
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public String deleteawards(@RequestParam("award") Award award, HttpServletRequest req) {
+		movService.delete(award);
+				return "redirect:" + req.getHeader("referer");
+	}
+
+	@RequestMapping(method = RequestMethod.GET)
+	public ModelAndView awards(HttpServletRequest req) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject(movService.getAllAwards());
+	
+			
+				return mav;
+	}	
+
+	@RequestMapping(method = RequestMethod.GET)
+	public String newAward() {
+		return null;
+	}
+	
+	
+	@RequestMapping(method = RequestMethod.POST)
+	public String newAward(@RequestParam("award") String award, HttpServletRequest req) {
+		movService.add(new Award(false, 0, award));
+				return "redirect:awards";
+	}
+	
+	@RequestMapping(method = RequestMethod.POST)
+	public String addAward(@RequestParam("award") Award award, HttpServletRequest req, @RequestParam("movie") Movie movie, @RequestParam("won") boolean won) {
+		award.setWon(won);
+		movService.add(movie, award);
+		return "redirect:" + req.getHeader("referer");
+	}
+
+	@RequestMapping(method = RequestMethod.GET)
+	public ModelAndView addAward() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject(movService.getAllAwards());
+		mav.addObject(movService.getAllMovies());
+
+		
+		return mav;
+	}
+
+	@RequestMapping(method = RequestMethod.GET)
+	public ModelAndView flagcomment() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject(commService.getAllFlagged());
+
+		
+		return mav;
+	}
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public String unflagcomment(@RequestParam("comment") Comment comment, HttpServletRequest req) {
+		comment.setFlag(false);
+		commService.saveComment(comment);
+		
+		return "redirect:" + req.getHeader("referer");
+	}
 }

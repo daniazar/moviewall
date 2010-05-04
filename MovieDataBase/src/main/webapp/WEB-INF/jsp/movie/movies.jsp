@@ -25,8 +25,8 @@
 									 <c:when test = "${movie.rating < 3}">Good</c:when>
 									 <c:when test = "${movie.rating < 4}">Great</c:when>
 									 <c:when test = "${movie.rating <= 5}">Awesome!</c:when>
-								</c:choose> 
-							
+								 </c:choose> 
+							| Rating VIP: <c:out value="${movie.ratingvip}" />
 							</li>
 							<c:set var="genres" value="${movie.genres}" />
 							

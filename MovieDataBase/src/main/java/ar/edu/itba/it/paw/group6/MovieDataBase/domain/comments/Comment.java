@@ -11,7 +11,7 @@ import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
 public class Comment {
 
 	public Comment(Movie movie, User user, String content, Date date,
-			int raiting, int id) {
+			int raiting, int id, boolean flag) {
 		super();
 		this.content = content;
 		this.date = date;
@@ -19,17 +19,20 @@ public class Comment {
 		this.id = id;			
 		this.movie = movie;
 		this.user = user;
+		this.flag= flag;
+		
 		validate();
 	}
 
 	public Comment(Movie movie, User user, String content, Date date,
-			int raiting) {
+			int raiting, boolean flag) {
 		super();
 		this.content = content;
 		this.date = date;
 		this.raiting = raiting;
 		this.movie = movie;
 		this.user = user;
+		this.flag= flag;		
 		validate();	
 	}
 	
@@ -46,10 +49,17 @@ public class Comment {
 	private Integer id;
 	private User user;
 	private Movie movie;
+	private boolean flag; 
 	/* (non-Javadoc)
 	 * @see ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments.Comment#IsNew()
 	 */
 	
+	public void setFlag(boolean flag) {
+		this.flag = flag;
+	}
+	public boolean getFlag() {
+		return flag;
+	}
 	
 	public boolean IsNew() {
 		if (id == null)

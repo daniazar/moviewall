@@ -4,20 +4,13 @@ package ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies;
 import java.sql.Date;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.dao.CommentDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.dao.GenreDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ManagerFactory;
-import ar.edu.itba.it.paw.group6.MovieDataBase.dao.MovieDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl.DatabaseManagerFactory;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments.Comment;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.Award;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.MovieGenre;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.SiteMovieGenre;
 
 public class Movie {
-
+	private float   ratingvip = 0f;
 	private int		movieId;
 	private float	rating;
 	private int		duration;
@@ -28,15 +21,13 @@ public class Movie {
 	private Date	release;
 	private Date 	creation;
 	private List<MovieGenre> genres;
-	private ManagerFactory factory;
 	private int cantComments = 0;
-
+	private List<Award> award= null;
 
 	public Movie (int movieId, String title, String director, String imgUrl, int duration, Date release, String synopsis, Date creation){
 
 		this(title, director, imgUrl, duration, release, synopsis);
 		this.movieId = movieId;
-		this.loadGenres();
 		this.creation =creation;
 	}
 
@@ -44,13 +35,16 @@ public class Movie {
 
 		this(title, director, imgUrl, duration, release, synopsis);
 		this.movieId = movieId;
-		this.loadGenres();
 	}
+public void setAward(List<Award> award) {
+	this.award = award;
+}
 
-	
+public List<Award> getAward() {
+	return award;
+}
 	public Movie (String title, String director, String imgUrl, int duration, Date release, String synopsis){
 
-		this.factory = DatabaseManagerFactory.getInstance();
 		this.movieId = -1;
 		this.title = title;
 		this.director = director;
@@ -60,31 +54,17 @@ public class Movie {
 		this.synopsis = synopsis;
 		long d = new java.util.Date().getTime();
 		creation = new Date(d); 
-		this.loadGenres();
 	}
 
 	// Genres:
+public void setGenres(List<MovieGenre> genres) {
+	this.genres = genres;
+}
 
+	
 	public Date getCreation() {
 		return creation;
 	};
-	public void loadGenres(){
-		
-		this.genres = new LinkedList<MovieGenre>();
-
-		MovieDao movieManager =  factory.getMovieManager();
-		GenreDao genreManager =  factory.getGenreManager();
-		Set<Genre> movieGenres = movieManager.GetMovieGenres(this);
-		Iterable<Genre> aux = genreManager.getAll();
-
-		for(Genre genre: aux) {
-			MovieGenre target = new SiteMovieGenre(genre.getName());
-			if(movieGenres.contains(genre)) {
-				target.addMovieGenreTag();
-			}	
-			this.genres.add(target);	
-		}
-	}
 	
 //	public void addGenre(Genre genre) {
 //		MovieManager manager =  factory.getMovieManager();
@@ -116,19 +96,9 @@ public class Movie {
 		return cantComments;
 	}
 	
-	public void removeComment(Comment comment) {
 
-		CommentDao manager =  factory.getCommentManager();
-		manager.removeComment(comment);
-		return;
-	}
 
-	public void removeComment(String id) {
 
-		CommentDao manager =  factory.getCommentManager();
-		manager.removeComment(id);
-		return;
-	}
 
 	// Director:
 	
@@ -165,26 +135,16 @@ public class Movie {
 	public void setRating(float rating) {
 		this.rating = rating;
 	}
-	public float getRating() {
-		if( rating == 0)
-		{
-		CommentDao manager =  factory.getCommentManager();
-		Iterable<Comment> com =manager.getComments(this);
-		int count = 0, points = 0;
-		
-		for (Comment comment : com) {
-			count++;
-			points += comment.getRating();
-		}
-		if (count != 0 ){
-		rating = points / count;	
-		}
-		else {
-			rating = -1;
-		}
-		}
-		
+	public float getRating() {		
 			return this.rating;
+	}
+	
+	public float getRatingvip() {
+		return ratingvip;
+	}
+	
+	public void setRatingvip(float ratingvip) {
+		this.ratingvip = ratingvip;
 	}
 
 	// Release:

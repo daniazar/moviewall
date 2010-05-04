@@ -57,6 +57,8 @@ public class MovieController {
 	public ModelAndView main() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject(service.getMoviesByModification());
+		mav.addObject("movieListRanking",service.getMoviesByRanking());
+		mav.addObject("movieListRelease",service.getMoviesByreleaseweek());
 		return mav;
 	}
 
@@ -85,7 +87,7 @@ public class MovieController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String savecomment(@RequestParam("user") User user, @RequestParam("movie") Movie movie,@RequestParam("rating") int rating,@RequestParam("comment") String comment, HttpServletRequest req ) {
 		try {
-			Comment c = new Comment(movie, user, comment, new Date((new java.util.Date()).getTime()), rating);
+			Comment c = new Comment(movie, user, comment, new Date((new java.util.Date()).getTime()), rating, false);
 			commService.saveComment(c);			
 		} catch (Exception e) {
 			;
@@ -95,5 +97,12 @@ public class MovieController {
 					
 		return redirect;
 	}
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public String flagcomment(@RequestParam("comment") Comment comment, HttpServletRequest req) {
+		comment.setFlag(true);
+		commService.saveComment(comment);
 		
+		return "redirect:" + req.getHeader("referer");
+	}
 }

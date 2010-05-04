@@ -18,20 +18,13 @@ public class DatabaseGenreDao implements GenreDao {
 	
 	private static final String USERNAME = "postgres";
 	private static final String PASSWORD = "postgres";
-	private static DatabaseGenreDao instance;
 	
 	private ConnectorManager connectionManager;
 
 	
 	
-	public static synchronized DatabaseGenreDao getInstance() {
-		if (instance == null) {
-			instance = new DatabaseGenreDao();
-		}
-		return instance;
-	}
 	
-	private DatabaseGenreDao() {
+	public DatabaseGenreDao() {
 		connectionManager = new ConnectorManager("org.postgresql.Driver", USERNAME, PASSWORD);
 		
 

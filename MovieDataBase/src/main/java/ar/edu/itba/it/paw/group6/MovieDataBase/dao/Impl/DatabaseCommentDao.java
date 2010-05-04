@@ -13,32 +13,25 @@ import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ConnectorManager;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments.Comment;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies.Movie;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
+
 import org.springframework.stereotype.Repository;
 @Repository
 public class DatabaseCommentDao implements CommentDao {
 
 	private static final String USERNAME = "postgres";
 	private static final String PASSWORD = "postgres";
-	private static DatabaseCommentDao instance;
-	
 	private ConnectorManager connectionManager;
 	private DatabaseMovieDao moviesDao;
 	private DatabaseUserDao usersDao;
 	
 	
 	
-	public static synchronized DatabaseCommentDao getInstance() {
-		if (instance == null) {
-			instance = new DatabaseCommentDao();
-		}
-		return instance;
-	}
-	
-	private DatabaseCommentDao() {
+
+	public DatabaseCommentDao() {
 		
 		connectionManager = new ConnectorManager("org.postgresql.Driver", USERNAME, PASSWORD);
-		moviesDao = new DatabaseMovieDao();
-		usersDao = new DatabaseUserDao();
+		this.moviesDao =  new DatabaseMovieDao();
+		this.usersDao = new DatabaseUserDao();
 	}
 
 	@Override
@@ -97,7 +90,7 @@ public class DatabaseCommentDao implements CommentDao {
 			
 	
 			Connection connection = connectionManager.getConnection();
-			PreparedStatement commentStmt = connection.prepareStatement("SELECT movie, username, content, rating, creation, id   FROM comment");
+			PreparedStatement commentStmt = connection.prepareStatement("SELECT movie, username, content, rating, creation, id, flag   FROM comment");
 			
 			ResultSet results = commentStmt.executeQuery();
 			while (results.next()) {
@@ -105,7 +98,7 @@ public class DatabaseCommentDao implements CommentDao {
 				
 				Date date2 = new Date(date.getTime());
 				
-				list.add( new Comment(moviesDao.getMovie(results.getInt(1)), usersDao.getUser(results.getString(2)), results.getString(3), date2,results.getInt(4), results.getInt(6)));
+				list.add( new Comment(moviesDao.getMovie(results.getInt(1)), usersDao.getUser(results.getString(2)), results.getString(3), date2,results.getInt(4), results.getInt(6), results.getBoolean(7)));
 			}
 			connection.close();
 		} catch (SQLException e) {
@@ -125,7 +118,7 @@ public class DatabaseCommentDao implements CommentDao {
 			
 	
 			Connection connection = connectionManager.getConnection();
-			PreparedStatement commentStmt = connection.prepareStatement("SELECT movie, username, content, rating, creation, id   FROM comment where id = ?");
+			PreparedStatement commentStmt = connection.prepareStatement("SELECT movie, username, content, rating, creation, id, flag   FROM comment where id = ?");
 			commentStmt.setInt(1, Integer.valueOf(id));
 			ResultSet results = commentStmt.executeQuery();
 			while (results.next()) {
@@ -134,7 +127,7 @@ public class DatabaseCommentDao implements CommentDao {
 				
 				Date date2 = new Date(date.getTime());
 				
-				c= ( new Comment(moviesDao.getMovie(results.getInt(1)), usersDao.getUser(results.getString(2)), results.getString(3), date2,results.getInt(4), results.getInt(6)));
+				c= ( new Comment(moviesDao.getMovie(results.getInt(1)), usersDao.getUser(results.getString(2)), results.getString(3), date2,results.getInt(4), results.getInt(6),  results.getBoolean(7)));
 			}
 			connection.close();
 		} catch (SQLException e) {
@@ -157,14 +150,14 @@ public class DatabaseCommentDao implements CommentDao {
 		try {
 
 			Connection connection = connectionManager.getConnection();
-			PreparedStatement commentStmt = connection.prepareStatement("SELECT movie, username, content, rating, creation, id   FROM comment where username = ?");
+			PreparedStatement commentStmt = connection.prepareStatement("SELECT movie, username, content, rating, creation, id, flag   FROM comment where username = ?");
 			commentStmt.setString(1, user.getUsername());
 			ResultSet results = commentStmt.executeQuery();
 
 			while(results.next()) {
 				java.sql.Date date = results.getDate(5);
 				Date date2 = new Date(date.getTime());
-				list.add( new Comment(moviesDao.getMovie(results.getInt(1)), user, results.getString(3), date2,results.getInt(4), results.getInt(6)));
+				list.add( new Comment(moviesDao.getMovie(results.getInt(1)), user, results.getString(3), date2,results.getInt(4), results.getInt(6), results.getBoolean(7)));
 			}
 			
 			connection.commit();
@@ -192,7 +185,7 @@ public class DatabaseCommentDao implements CommentDao {
 			
 	
 			Connection connection = connectionManager.getConnection();
-			PreparedStatement commentStmt = connection.prepareStatement("SELECT movie, username, content, rating, creation, id   FROM comment where movie = ?");
+			PreparedStatement commentStmt = connection.prepareStatement("SELECT movie, username, content, rating, creation, id, flag   FROM comment where movie = ?");
 			commentStmt.setInt(1, movie.getId());
 			ResultSet results = commentStmt.executeQuery();
 
@@ -200,7 +193,7 @@ public class DatabaseCommentDao implements CommentDao {
 
 				java.sql.Date date = results.getDate(5);
 				Date date2 = new Date(date.getTime());
-				list.add( new Comment(movie, usersDao.getUser(results.getString(2)), results.getString(3), date2,results.getInt(4), results.getInt(6)));
+				list.add( new Comment(movie, usersDao.getUser(results.getString(2)), results.getString(3), date2,results.getInt(4), results.getInt(6), results.getBoolean(7)));
 			}
 
 			connection.commit();
@@ -268,7 +261,8 @@ public class DatabaseCommentDao implements CommentDao {
 
 	public void saveComment(Comment comment) {
 		try {
-
+		if(comment.IsNew())
+		{
 		Connection connection = connectionManager.getConnection();
 		PreparedStatement commentStmt = connection.prepareStatement("INSERT INTO comment(content , username, movie, rating,	creation) values(?, ?, ? , ? , ?)");
 		commentStmt.setString(1, comment.getContent());
@@ -280,13 +274,31 @@ public class DatabaseCommentDao implements CommentDao {
 		commentStmt.executeUpdate();
 		connection.commit();
 		connection.close();
+		}
+		else
+		{
+			Connection connection = connectionManager.getConnection();					
+			PreparedStatement commentStmt = connection.prepareStatement("UPDATE comment SET content =?, username=?, movie=?, rating=?, creation=?, flag=?  WHERE id=?");
+			commentStmt.setString(1, comment.getContent());
+			commentStmt.setString(2, comment.getUser().getUsername());
+			commentStmt.setInt(3, comment.getMovie().getId());
+			commentStmt.setInt(4, comment.getRating());
+			commentStmt.setDate(5, new java.sql.Date(comment.getDate().getTime()));
+			commentStmt.setBoolean(6, comment.getFlag());
+			commentStmt.setInt(7, comment.getId());
+			
+			commentStmt.executeUpdate();
+			connection.commit();
+			connection.close();
+		}
+		
 		} catch (SQLException e) {
 			throw new DatabaseException(e.getMessage(), e);
 		}
 		catch (Exception e) {
 			;
 		}
-
+		
 
 	
 	}

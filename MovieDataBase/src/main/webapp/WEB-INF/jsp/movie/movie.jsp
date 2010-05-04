@@ -19,7 +19,8 @@
 									 <c:when test = "${movie.rating < 3}">Good</c:when>
 									 <c:when test = "${movie.rating < 4}">Great</c:when>
 									 <c:when test = "${movie.rating <= 5}">Awesome!</c:when>
-								</c:choose> </li>
+								</c:choose> 
+							| Rating VIP: <c:out value="${movie.ratingvip}" />	</li>
 							<c:set var="genres" value="${movie.genres}" />
 							
 							<li>Genres: <%@ include file="printGenres.jsp" %></li>
@@ -27,6 +28,28 @@
 							<li>Release: <fmt:formatDate value="${movie.release}" pattern="yyyy/MM/dd" /></li>
 							<li>Last Modification: <fmt:formatDate value="${movie.creation}" pattern="yyyy/MM/dd" /></li>
 									</ul>
+							<ul>
+							<br/>
+							<br/>
+							<c:forEach items="${movie.award}" var="award">
+							
+							<li>
+							<c:out value="${award.name}" />
+							<c:if test="${award.won}">
+							 <span class ="error">Won</span>
+							 </c:if>
+							 <c:if test="${! award.won}">
+	 						 <span class ="error">Nominated</span>
+	
+							 </c:if>  
+							 <c:if test="${user.isAdmin}"> 
+								<a href="../admin/deleteaward?award=${award.id}&movie=${movie.id}"> Delete</a>
+							</c:if> 
+							 
+							</li>
+							
+							</c:forEach>
+							</ul>
 							<br/>
 							<br/>
 							

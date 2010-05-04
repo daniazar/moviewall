@@ -15,6 +15,36 @@
 
 
 		<%@ include file="../rightBar.jsp" %>
+		<div id="recent-posts">
+		<div class="right green corner">
+		<h1>Top five movies:</h1>
+		<c:forEach items="${movieListRanking}" var="movie">
+		
+		<a href="<c:url value="viewMovie"><c:param name="movie" value="${movie.id}" /></c:url>">
+		<c:out value="${movie.title}"  />
+
+		</a>
+		rating: <c:out value="${movie.rating}"  />
+		<br/>
+		
+		</c:forEach>
+		</div>
+		
+		<div class="right pink corner">
+		<h1>This week Releases:</h1>
+		<c:forEach items="${movieListRelease}" var="movie">
+		
+		<a href="<c:url value="viewMovie"><c:param name="movie" value="${movie.id}" /></c:url>">
+		<c:out value="${movie.title}"  />
+
+		</a>
+		rating: <c:out value="${movie.rating}"  />
+		<br/>
+		
+		</c:forEach>
+		</div>
+		
+		</div>
 	</div>	
 	<!-- end content -->	
 			

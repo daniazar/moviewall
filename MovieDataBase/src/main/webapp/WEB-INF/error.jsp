@@ -1,22 +1,34 @@
-<%@ page contentType="text/html" %>
-<%@ page pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ include file="jsp/header.jsp" %>
+				
+<div id="page">
+	<!-- start content -->
+	<div id="content">
+		<!-- start latest-post -->
+		<div id="latest-post" class="post">
+			<h1 class="title"><c:out value="Error" /></h1>
+			<h5>An internal error occurred</h5>
+			<div class="entry">
+		<div class="left corner blue">	
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-
-<html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>
+		<span class="error">
+		<c:out value="${error.message}" /></span>
+		
+			</div>
+		</div>	
+		</div>		
+		<%@ include file="jsp/rightBar.jsp" %>	
+				
+	</div>	
+	<!-- end content -->	
 			
-			Error
-		</title>
+				
 
-	<body>
-		An internal error occurred
-		<p><c:out value="${error.message}" /> </p>
-	</body>
-</html>
+		<div id="sidebar">
+			
+		
+		</div>
+	
+	
+</div>
+<%@ include file="jsp/footer.jsp" %>
+

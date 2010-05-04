@@ -13,7 +13,6 @@
 							<td class = "col">Name</td>
 							<td class = "col">Surname</td>
 							<td class = "col">E-mail</td>
-							<td class = "col">Comments</td>
 							<td class = "col">VIP</td>
 							<td class = "col">Admin</td>
 						</tr>
@@ -24,9 +23,7 @@
           					<td class = "col">${user.name}</td>
           					<td class = "col">${user.surname}</td>
           					<td class = "col">${user.email}</td>
-          					<td class = "col"> ${user.cantComments}</td>
-							
-			
+          				
           					<td class= "col"> <a href="<c:url value="userupgrade"><c:param name="userp" value="${user.username}"/>
 																<c:param name="admin" value="${user.isAdmin}"/>
 																<c:param name="vip" value="${not user.isVip}"/>

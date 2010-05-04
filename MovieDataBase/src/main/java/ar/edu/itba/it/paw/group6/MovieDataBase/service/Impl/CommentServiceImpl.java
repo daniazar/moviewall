@@ -1,5 +1,7 @@
 package ar.edu.itba.it.paw.group6.MovieDataBase.service.Impl;
 
+import java.util.ArrayList;
+
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.CommentDao;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments.Comment;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies.Movie;
@@ -59,6 +61,18 @@ public class CommentServiceImpl implements CommentService {
 	public void saveComment(Comment comment) {
 		commDao.saveComment(comment);
 
+	}
+	
+	@Override
+	public Iterable<Comment> getAllFlagged() {
+		Iterable<Comment> com =commDao.getAll();
+		ArrayList<Comment> comment = new ArrayList<Comment>();
+		for (Comment c : com) {
+			if (c.getFlag()) {
+				comment.add(c);
+			}
+		}
+		return comment;
 	}
 
 }

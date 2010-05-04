@@ -91,6 +91,10 @@
 					<li><a href = "../movie/main">Main Home</a></li>
 					<li><a href = "movies">Movies</a></li>
 					<li><a href = "users">Users</a></li>
+					<li><a href = "awards">View awards</a></li>
+					<li><a href = "newAward">New award</a></li>
+					<li><a href = "addAward">Add award to movie</a></li>
+					<li><a href = "flagcomment">Flagged comments</a></li>
 					<li><a href = "../user/logout">Logout</a></li>
 				</ul>
 			</div>

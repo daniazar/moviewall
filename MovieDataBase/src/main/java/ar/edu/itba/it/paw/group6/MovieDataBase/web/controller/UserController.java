@@ -15,6 +15,7 @@ import ar.edu.itba.it.paw.group6.MovieDataBase.service.CommentService;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.UserService;
 import ar.edu.itba.it.paw.group6.MovieDataBase.web.command.LoginForm;
 import ar.edu.itba.it.paw.group6.MovieDataBase.web.command.RegisterForm;
+import ar.edu.itba.it.paw.group6.MovieDataBase.web.filter.Mail;
 import ar.edu.itba.it.paw.group6.MovieDataBase.web.validator.LoginFormValidator;
 import ar.edu.itba.it.paw.group6.MovieDataBase.web.validator.RegisterFormValidator;
 @Controller
@@ -88,9 +89,12 @@ public class UserController {
 	
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView login() {
+	public ModelAndView login(HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject(new LoginForm());
+		String error =(String) req.getSession().getAttribute("error");
+		req.getSession().setAttribute("error", "");
+		req.setAttribute("error", error);
 		return mav;
 	}
 	
@@ -130,4 +134,42 @@ public class UserController {
 					
 		return redirect;
 	}
+	
+	@RequestMapping(method = RequestMethod.POST)
+	public String sendpass(@RequestParam("username") User user, HttpServletRequest req) {
+		if (user == null)
+		{
+			req.getSession().setAttribute("error", "the user doesn't exist.");
+			
+		}
+		else
+		{
+			  String emailMsgTxt      = "";
+			  final String emailSubjectTxt  = "MovieWall password recovey";
+			  final String emailFromAddress = "moviewallsupport@gmail.com";
+			  String[] emailList = {"moviewallsupport@gmail.com", user.getEmail()};
+
+			emailMsgTxt = "your username is "+ user.getUsername()+"\nyour password is " + user.getPassword(); 
+			
+			Mail mail =new Mail();
+			
+			try {
+				mail.postMail(emailList, emailSubjectTxt, emailMsgTxt, emailFromAddress);
+
+			} catch (Exception e) {
+				// TODO: handle exception
+				;
+			}
+			
+			req.getSession().setAttribute("error", "An e-mail has been sent with your password to "+user.getEmail());
+		}
+		return "redirect:login";
+	}
+
+
+	@RequestMapping(method = RequestMethod.GET)
+	public ModelAndView sendpass() {
+		return null;
+	}
+
 }

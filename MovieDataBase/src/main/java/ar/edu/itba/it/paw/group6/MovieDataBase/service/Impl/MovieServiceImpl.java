@@ -1,11 +1,15 @@
 package ar.edu.itba.it.paw.group6.MovieDataBase.service.Impl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.Set;
 
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.MovieDao;
+import ar.edu.itba.it.paw.group6.MovieDataBase.domain.Award;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies.Movie;
 import ar.edu.itba.it.paw.group6.MovieDataBase.service.CommentService;
@@ -41,7 +45,46 @@ public class MovieServiceImpl implements MovieService {
             	}
             };
 
-	
+@Override
+	public Iterable<Movie> getMoviesByreleaseweek() {
+	Iterable<Movie> mov =movieDao.getAllMovies();
+	ArrayList<Movie> movies= new ArrayList<Movie>();
+	  Calendar calendar1 = Calendar.getInstance();
+	  calendar1.set(calendar1.get(Calendar.YEAR),calendar1.get(Calendar.MONTH)+1,calendar1.get(Calendar.DAY_OF_MONTH));	
+
+	for (Movie movie : mov) {
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
+		Integer year= Integer.parseInt((formatter.format(movie.getRelease())));
+		formatter = new SimpleDateFormat("MM");
+		Integer month= Integer.parseInt((formatter.format(movie.getRelease())));
+		formatter = new SimpleDateFormat("dd");
+		Integer day= Integer.parseInt((formatter.format(movie.getRelease())));
+		    Calendar calendar2 = Calendar.getInstance();
+		    calendar2.set(year, month, day);
+		    long milliseconds1 = calendar1.getTimeInMillis();
+		    long milliseconds2 = calendar2.getTimeInMillis();
+		    long diff = milliseconds2 - milliseconds1;
+
+		//    System.err.println(calendar1.get(Calendar.DAY_OF_WEEK) +  "day:" + calendar1.get(Calendar.DAY_OF_MONTH)  );
+		    long diffDays = diff / (24 * 60 * 60 * 1000);
+		 //   System.err.println(diffDays);
+		    if( Math.abs(diffDays) <= 7){
+		    	day =calendar1.get(Calendar.DAY_OF_WEEK);
+		 //   	int day2 =calendar2.get(Calendar.DAY_OF_WEEK);
+		    	
+		    	if (day >=1 && milliseconds1 >= milliseconds2)
+		    		movies.add(movie);
+		    	if (day <=1 && milliseconds1 <= milliseconds2)
+		    		movies.add(movie);
+		    	
+		    		
+		    }
+	}
+		
+		
+		return movies;
+	}	
 	
 	
     @Autowired
@@ -200,4 +243,33 @@ public class MovieServiceImpl implements MovieService {
 
 	}
 
+	public Award getAward(int id){
+		return movieDao.getAward(id);
+	}
+	
+	public void remove(Movie movie, Award award){
+		movieDao.remove(movie, award);
+	
+	}
+	@Override
+	public void add(Award award) {
+		movieDao.add(award);
+				
+	}
+	@Override
+	public void add(Movie movie, Award award) {
+		movieDao.add(movie, award);
+		
+	}
+	@Override
+	public void delete(Award award) {
+		movieDao.delete(award);
+				
+	}
+	@Override
+		public Iterable<Award> getAllAwards() {
+			
+			return movieDao.getAllAwards();
+		}	
+	
 }

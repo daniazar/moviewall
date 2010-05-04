@@ -4,6 +4,7 @@
 package ar.edu.itba.it.paw.group6.MovieDataBase.web.filter;
 
 import java.io.IOException;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -12,9 +13,12 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ManagerFactory;
-import ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl.DatabaseManagerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl.DatabaseGenreDao;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
+import ar.edu.itba.it.paw.group6.MovieDataBase.service.GenreService;
+import ar.edu.itba.it.paw.group6.MovieDataBase.service.Impl.GenreServiceImpl;
 
 
 public class GenresFilter implements Filter {
@@ -31,14 +35,18 @@ public class GenresFilter implements Filter {
 	/* (non-Javadoc)
 	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
 	 */
-	private ManagerFactory manfact = DatabaseManagerFactory.getInstance();
+	@Autowired
+	private GenreService service = new GenreServiceImpl(new DatabaseGenreDao());
+	
+	
+	
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
 			HttpServletRequest req =(HttpServletRequest) request;
 			if(req.getParameter("allgenres") == null)
 			{
-				Iterable<Genre> genres = manfact.getGenreManager().getAll();
+				Iterable<Genre> genres = service.getAll();
 				req.getSession().setAttribute("allgenres", genres);
 				
 				

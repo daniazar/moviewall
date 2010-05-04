@@ -26,4 +26,7 @@ public interface CommentService {
 
 	public void SetCantComments(Movie movie);
 	
+	public Iterable<Comment> getAllFlagged();
+
+	
 }

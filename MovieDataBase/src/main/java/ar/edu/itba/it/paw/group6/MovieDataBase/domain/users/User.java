@@ -2,12 +2,6 @@ package ar.edu.itba.it.paw.group6.MovieDataBase.domain.users;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-
-import ar.edu.itba.it.paw.group6.MovieDataBase.dao.CommentDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ManagerFactory;
-import ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl.DatabaseManagerFactory;
-import ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments.Comment;
 
 /*
  * Representa un usuario de la aplicaci�n
@@ -24,7 +18,6 @@ public class User {
 	private boolean isVip;
 	private boolean isAdmin;
 	private boolean isNew;
-	ManagerFactory factory;
 	
 	public User(String username, String password, String email, String name, String surname, Boolean isVip, Boolean isAdmin, Date birthday) {
 		this.username = username;
@@ -38,7 +31,6 @@ public class User {
 		/*Cuando creo un usuario por default es nuevo, si estoy volviendo de una base de datos, 
 		 * llamo a setNotNew para poner este campo en falso*/
 		this.isNew = true;
-		this.factory = DatabaseManagerFactory.getInstance();
 	}		
 	
 	public String getEmail() {		
@@ -191,18 +183,6 @@ public class User {
 		return true;
 	}
 	
-	public List<Comment> getComments(){
-
-		CommentDao manager = factory.getCommentManager();
-		return  (List<Comment>) manager.getComments(this);
-	}
-	
-	public int getCantComments(){
-		
-		CommentDao manager = factory.getCommentManager();
-		return manager.getUserCantComments(this.username);
-	}
-
 	public String  getStringisvip(){
 		return (this.isVip?"Yes":"No");
 	}
