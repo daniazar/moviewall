@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ConnectorManager;
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.GenreDao;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.Genre;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.genres.OnDemandGenre;

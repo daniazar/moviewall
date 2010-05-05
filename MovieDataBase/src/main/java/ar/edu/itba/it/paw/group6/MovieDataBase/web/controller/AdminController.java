@@ -117,6 +117,7 @@ public class AdminController {
 		mav.addObject(movie);
 		mav.addObject(commService.getComments(movie));
 		mav.addObject("genreList",movie.getAllMovieGenres());
+		mav.addObject(movService.getAllAwards());
 		mav.addObject(new MovieForm(movie));
 		return mav;
 	}
@@ -126,6 +127,8 @@ public class AdminController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject(genService.getAll());
 		mav.addObject(new MovieForm());
+		mav.addObject("genreList",genService.getAll());
+
 		
 		return mav;
 	}

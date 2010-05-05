@@ -23,7 +23,7 @@ public class MovieFormValidator implements Validator {
 		if (errors.getFieldErrorCount("director") == 0 && obj.getDirector() == null || obj.getDirector().length() == 0) {
 			errors.rejectValue("director", "empty");
 		}
-		if (errors.getFieldErrorCount("name") == 0 && obj.getSinopsys() == null || obj.getSinopsys().length() == 0) {
+		if (errors.getFieldErrorCount("sinopsys") == 0 && obj.getSinopsys() == null || obj.getSinopsys().length() == 0) {
 			errors.rejectValue("sinopsys", "empty");
 		}
 		

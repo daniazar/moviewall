@@ -13,7 +13,6 @@ import java.util.Set;
 
 import org.springframework.stereotype.Repository;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ConnectorManager;
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.GenreDao;
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.MovieDao;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.Award;

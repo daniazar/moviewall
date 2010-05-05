@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.CommentDao;
-import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ConnectorManager;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.comments.Comment;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.movies.Movie;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;

@@ -1,10 +1,9 @@
-package ar.edu.itba.it.paw.group6.MovieDataBase.dao;
+package ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.dao.Impl.DatabaseException;
 
 
 public class ConnectorManager {

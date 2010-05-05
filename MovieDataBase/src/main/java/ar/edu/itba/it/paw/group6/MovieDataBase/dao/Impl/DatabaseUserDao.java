@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import ar.edu.itba.it.paw.group6.MovieDataBase.dao.ConnectorManager;
 import ar.edu.itba.it.paw.group6.MovieDataBase.dao.UserDao;
 import ar.edu.itba.it.paw.group6.MovieDataBase.domain.users.User;
 import org.springframework.stereotype.Repository;
