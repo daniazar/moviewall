@@ -1,0 +1,1 @@
+hay que realizar un imdb implementando scrum sobre java, usando spring y hibernate.
